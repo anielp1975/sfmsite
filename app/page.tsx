@@ -1,8 +1,8 @@
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-white flex flex-col items-center justify-center px-4 pb-32">
+    <div className="min-h-screen flex flex-col items-center justify-center px-4 pb-32 text-white" style={{ background: 'linear-gradient(135deg, #314da2 0%, #1a3d7a 100%)' }}>
       <div className="text-center max-w-2xl">
-        <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-red-400 to-red-600 bg-clip-text text-transparent">
+        <h1 className="text-6xl font-bold mb-6" style={{ color: '#fad428' }}>
           SFM Radio
         </h1>
         <p className="text-2xl text-slate-300 mb-8">
