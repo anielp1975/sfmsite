@@ -5,11 +5,11 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {/* Logo en naam */}
           <div className="flex flex-col items-center md:items-start">
-            <div className="bg-yellow-400 p-3 rounded-2xl mb-4 shadow-xl">
+            <div className="bg-white p-3 rounded-2xl mb-4 shadow-xl">
               <img
-                src="/logo.svg"
+                src="https://www.sunrisefm.eu/images/logo.jpg"
                 alt="Radio SunriseFM"
-                className="h-16 w-16"
+                className="h-16 w-auto rounded-lg"
               />
             </div>
             <h3 className="text-3xl font-black text-yellow-300">Radio SunriseFM</h3>

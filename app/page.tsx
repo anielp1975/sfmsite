@@ -33,9 +33,9 @@ export default function Home() {
               <div className="relative">
                 <div className="absolute inset-0 bg-yellow-400/20 rounded-full blur-2xl animate-pulse"></div>
                 <img
-                  src="/logo.svg"
+                  src="https://www.sunrisefm.eu/images/logo.jpg"
                   alt="Radio SunriseFM Logo"
-                  className="relative h-64 w-64 md:h-80 md:w-80 drop-shadow-2xl transform hover:rotate-12 transition-transform duration-500"
+                  className="relative h-64 w-auto md:h-80 drop-shadow-2xl transform hover:scale-110 transition-transform duration-500 rounded-2xl"
                 />
               </div>
             </div>

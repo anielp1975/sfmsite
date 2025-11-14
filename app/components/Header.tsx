@@ -21,9 +21,9 @@ export default function Header() {
           {/* Logo - Links boven */}
           <Link href="/" className="flex items-center gap-3 group">
             <img
-              src="/logo.svg"
+              src="https://www.sunrisefm.eu/images/logo.jpg"
               alt="Radio SunriseFM"
-              className="h-16 w-16 drop-shadow-lg transform group-hover:scale-110 transition-transform duration-300"
+              className="h-16 w-auto drop-shadow-lg transform group-hover:scale-110 transition-transform duration-300 rounded-lg"
             />
             <div className="hidden sm:block">
               <h1 className="text-2xl font-black text-blue-900">Radio SunriseFM</h1>
