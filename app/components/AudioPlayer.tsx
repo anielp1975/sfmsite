@@ -14,10 +14,15 @@ export default function AudioPlayer() {
     }
   }, [volume]);
 
-  const handlePlay = () => {
+  const handlePlay = async () => {
     if (audioRef.current) {
-      audioRef.current.play();
-      setIsPlaying(true);
+      try {
+        await audioRef.current.play();
+        setIsPlaying(true);
+      } catch (error) {
+        console.error('Error playing audio:', error);
+        alert('Kon audio niet afspelen. Probeer het opnieuw.');
+      }
     }
   };
 
