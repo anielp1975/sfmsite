@@ -48,49 +48,55 @@ export default function AudioPlayer() {
   };
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 border-t-4 border-blue-600 shadow-2xl z-50">
-      <div className="max-w-7xl mx-auto px-4 py-3">
-        <div className="flex items-center justify-between gap-4">
-          {/* Status */}
-          <div className="flex items-center gap-3">
-            <span className={`flex items-center gap-2 font-semibold ${isPlaying ? 'text-red-600' : 'text-blue-600'}`}>
-              {isPlaying && <span className="w-2 h-2 bg-red-600 rounded-full animate-pulse"></span>}
-              {isPlaying ? 'LIVE' : 'OFFLINE'}
-            </span>
+    <div className="fixed bottom-0 left-0 right-0 bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 border-t-4 border-blue-900 shadow-2xl z-50 backdrop-blur-sm">
+      <div className="max-w-7xl mx-auto px-4 py-4">
+        <div className="flex items-center justify-between gap-4 flex-wrap md:flex-nowrap">
+          {/* Status & Info */}
+          <div className="flex items-center gap-4">
+            <div className="bg-white/50 px-4 py-2 rounded-xl shadow-lg">
+              <span className={`flex items-center gap-2 font-black text-sm ${isPlaying ? 'text-red-600' : 'text-blue-900'}`}>
+                {isPlaying && <span className="w-3 h-3 bg-red-600 rounded-full animate-pulse"></span>}
+                {isPlaying ? '🔴 LIVE' : '⚫ OFFLINE'}
+              </span>
+            </div>
+            <div className="hidden sm:block">
+              <p className="text-blue-900 font-black text-sm">Radio SunriseFM</p>
+              <p className="text-blue-700 font-semibold text-xs">102.3 FM • DAB+</p>
+            </div>
           </div>
 
           {/* Player Controls */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 flex-wrap justify-center md:justify-end">
             <button
               onClick={handlePlay}
               disabled={isPlaying}
-              className={`px-4 py-2 rounded-lg font-bold text-white transition-all ${
+              className={`px-6 py-3 rounded-xl font-black text-white transition-all shadow-lg ${
                 isPlaying
                   ? 'bg-gray-400 cursor-not-allowed'
-                  : 'bg-green-600 hover:bg-green-700 active:scale-95'
+                  : 'bg-green-600 hover:bg-green-700 active:scale-95 hover:shadow-green-600/50'
               }`}
               title="Play"
             >
-              ▶ Play
+              ▶️ Play
             </button>
             <button
               onClick={handleStop}
               disabled={!isPlaying}
-              className={`px-4 py-2 rounded-lg font-bold text-white transition-all ${
+              className={`px-6 py-3 rounded-xl font-black text-white transition-all shadow-lg ${
                 !isPlaying
                   ? 'bg-gray-400 cursor-not-allowed'
-                  : 'bg-red-600 hover:bg-red-700 active:scale-95'
+                  : 'bg-red-600 hover:bg-red-700 active:scale-95 hover:shadow-red-600/50'
               }`}
               title="Stop"
             >
-              ⏹ Stop
+              ⏹️ Stop
             </button>
 
             {/* Volume Control */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-3 bg-white/50 px-4 py-2 rounded-xl shadow-lg">
               <button
                 onClick={toggleMute}
-                className="p-2 text-blue-600 hover:text-blue-700 transition-colors"
+                className="text-2xl hover:scale-110 transition-transform"
                 title={isMuted ? 'Unmute' : 'Mute'}
               >
                 {isMuted || volume === 0 ? '🔇' : volume < 0.5 ? '🔉' : '🔊'}
@@ -102,9 +108,9 @@ export default function AudioPlayer() {
                 step="0.01"
                 value={volume}
                 onChange={handleVolumeChange}
-                className="w-20 h-2 bg-blue-600 rounded-lg appearance-none cursor-pointer"
+                className="w-24 h-2 bg-blue-900 rounded-lg appearance-none cursor-pointer"
                 style={{
-                  background: `linear-gradient(to right, #314da2 0%, #314da2 ${volume * 100}%, #cbd5e1 ${volume * 100}%, #cbd5e1 100%)`
+                  background: `linear-gradient(to right, #1e3a8a 0%, #1e3a8a ${volume * 100}%, #cbd5e1 ${volume * 100}%, #cbd5e1 100%)`
                 }}
                 title="Volume"
               />
