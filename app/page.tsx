@@ -4,43 +4,60 @@ export default function Home() {
   return (
     <div className="min-h-screen pb-24">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 text-white py-20 px-4 overflow-hidden">
-        {/* Animated background circles */}
-        <div className="absolute top-10 left-10 w-64 h-64 bg-yellow-400/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-10 right-10 w-96 h-96 bg-yellow-400/10 rounded-full blur-3xl animate-pulse delay-75"></div>
+      <section className="relative h-screen min-h-[600px] bg-gradient-to-br from-blue-900 via-purple-900 to-blue-900 text-white overflow-hidden flex items-center">
+        {/* Animated background with floating glow effect */}
+        <div className="absolute inset-0">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-yellow-400/20 rounded-full blur-3xl animate-float"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-blue-400/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute top-1/2 left-1/2 w-72 h-72 bg-purple-400/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '4s' }}></div>
+        </div>
         
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+        <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-16">
             {/* Left side - Text */}
-            <div className="flex-1 text-center md:text-left">
-              <div className="inline-block bg-yellow-400 text-blue-900 px-6 py-2 rounded-full font-bold text-sm mb-6 shadow-lg">
+            <div className="flex-1 text-center md:text-left space-y-8">
+              <div className="inline-block bg-yellow-400 text-blue-900 px-6 py-2 rounded-full font-bold text-sm shadow-2xl animate-pulse">
                 🔴 NU LIVE
               </div>
-              <h1 className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
-                Radio <span className="text-yellow-400">SunriseFM</span>
+              
+              <h1 className="text-6xl md:text-8xl font-black leading-tight">
+                Radio<br />
+                <span className="text-yellow-400 drop-shadow-lg">SunriseFM</span>
               </h1>
-              <p className="text-xl md:text-2xl text-blue-200 mb-8 leading-relaxed">
-                De beste muziek voor Rotterdam & Den Haag 🌅
+              
+              <p className="text-2xl md:text-3xl text-blue-100 font-light leading-relaxed max-w-2xl">
+                Jouw hindoestaanse hitstation.<br />
+                Non-stop muziek, vibes en verbinding. 🌅
               </p>
-              <p className="text-lg text-blue-300 mb-8">
-                Luister 24/7 naar de grootste hits, lokaal nieuws en entertainment
-              </p>
-              <button className="bg-yellow-400 hover:bg-yellow-500 text-blue-900 font-bold text-lg px-8 py-4 rounded-full shadow-2xl hover:shadow-yellow-400/50 transform hover:scale-110 transition-all duration-300 animate-pulse hover:animate-none cursor-pointer">
-                🎵 Start met luisteren
-              </button>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-4">
+                <button className="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold text-lg px-10 py-5 rounded-full shadow-2xl hover:shadow-yellow-400/50 transform hover:scale-105 transition-all duration-300">
+                  🎵 Luister Nu
+                </button>
+                <button className="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white font-bold text-lg px-10 py-5 rounded-full border-2 border-white/30 hover:border-white/50 transform hover:scale-105 transition-all duration-300">
+                  📱 Download App
+                </button>
+              </div>
             </div>
             
             {/* Right side - Logo */}
-            <div className="flex-1 flex justify-center">
+            <div className="flex-1 flex justify-center items-center">
               <div className="relative">
-                <div className="absolute inset-0 bg-yellow-400/20 rounded-full blur-2xl animate-pulse"></div>
+                <div className="absolute inset-0 bg-yellow-400/30 rounded-full blur-3xl animate-pulse"></div>
                 <img
                   src="https://www.sunrisefm.eu/images/logo.jpg"
                   alt="Radio SunriseFM Logo"
-                  className="relative h-64 w-auto md:h-80 drop-shadow-2xl transform hover:scale-110 transition-transform duration-500 rounded-2xl"
+                  className="relative h-72 w-auto md:h-96 drop-shadow-2xl transform hover:scale-105 transition-transform duration-700 rounded-3xl"
                 />
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2">
+            <div className="w-1 h-2 bg-white/50 rounded-full"></div>
           </div>
         </div>
       </section>
