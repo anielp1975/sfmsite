@@ -17,10 +17,10 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-40 shadow-2xl">
       {/* Blauwe frequentie balk */}
-      <div className="bg-blue-900 text-white py-2 px-4 overflow-hidden">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-center">
-            <div className="flex flex-wrap items-center justify-center gap-1 sm:gap-3 text-xs sm:text-sm font-semibold">
+      <div className="bg-blue-900 text-white py-2 px-4 overflow-hidden w-full">
+        <div className="w-full">
+          <div className="flex items-center justify-center w-full">
+            <div className="flex flex-wrap items-center justify-center gap-1 sm:gap-3 text-xs sm:text-sm font-semibold w-full max-w-full">
               <span className="whitespace-nowrap">📻 Rotterdam en omgeving 102.3FM</span>
               <span className="hidden sm:inline text-yellow-400">|</span>
               <span className="whitespace-nowrap">📻 Den Haag en omgeving 89.8FM</span>
