@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import { trackEvent } from './AnalyticsTracker';
 
 export default function AudioPlayer() {
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -19,6 +20,8 @@ export default function AudioPlayer() {
       try {
         await audioRef.current.play();
         setIsPlaying(true);
+        // Track audio play event
+        trackEvent('audio_play', window.location.pathname, 'Audio stream gestart');
       } catch (error) {
         console.error('Error playing audio:', error);
         alert('Kon audio niet afspelen. Probeer het opnieuw.');
@@ -31,6 +34,8 @@ export default function AudioPlayer() {
       audioRef.current.pause();
       audioRef.current.currentTime = 0;
       setIsPlaying(false);
+      // Track audio stop event
+      trackEvent('audio_stop', window.location.pathname, 'Audio stream gestopt');
     }
   };
 

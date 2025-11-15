@@ -1,4 +1,5 @@
 import WorldCupStandings from './components/WorldCupStandings'
+import AdBanner from './components/AdBanner'
 
 export default function Home() {
   return (
@@ -62,6 +63,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Ad Banner 1 - Top Leaderboard */}
+      <AdBanner size="leaderboard" position="Positie 1: Direct na Hero sectie (hoogste zichtbaarheid)" />
+
       {/* Luister Via Section */}
       <section className="py-20 px-4 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto">
@@ -120,6 +124,11 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Ad Banner 2 - Rectangle */}
+      <div className="bg-white py-8">
+        <AdBanner size="rectangle" position="Positie 2: Na 'Luister Via' sectie (midden content)" />
+      </div>
+
       {/* Features Section */}
       <section className="py-20 px-4 bg-gradient-to-br from-blue-900 to-blue-800 text-white">
         <div className="max-w-7xl mx-auto">
@@ -161,8 +170,18 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Ad Banner 3 - Leaderboard */}
+      <div className="bg-gray-900 py-8">
+        <AdBanner size="leaderboard" position="Positie 3: Na 'Waarom SunriseFM' sectie" />
+      </div>
+
       {/* World Cup Standings */}
       <WorldCupStandings />
+
+      {/* Ad Banner 4 - Rectangle */}
+      <div className="bg-blue-900 py-8">
+        <AdBanner size="rectangle" position="Positie 4: Na WK Kwalificatie stand (sportliefhebbers)" />
+      </div>
 
       {/* CTA Section */}
       <section className="py-20 px-4 bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 relative overflow-hidden">
@@ -187,6 +206,55 @@ export default function Home() {
             <div className="bg-blue-900 text-yellow-400 px-6 py-3 rounded-full font-bold shadow-lg hover:shadow-2xl hover:scale-110 transform transition-all duration-300 cursor-pointer">
               💯 Gratis
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Ad Banner 5 - Bottom Leaderboard */}
+      <div className="bg-gray-50 py-8">
+        <AdBanner size="leaderboard" position="Positie 5: Voor de footer (laatste impressie)" />
+      </div>
+
+      {/* Sidebar Ad Info Section */}
+      <section className="py-16 px-4 bg-gradient-to-b from-white to-gray-100">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-blue-900 text-center mb-8">
+            📢 Extra Advertentiemogelijkheden
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-white p-6 rounded-2xl shadow-lg border-2 border-blue-200">
+              <h3 className="text-xl font-bold text-blue-900 mb-4">🔹 Sidebar Banners (Desktop)</h3>
+              <p className="text-gray-700 mb-4">
+                Sticky banners aan de zijkant die meescrollen met de gebruiker. Ideaal voor langdurige zichtbaarheid.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-600">
+                <li>✓ Skyscraper formaat: 160x600px</li>
+                <li>✓ Altijd in beeld tijdens scrollen</li>
+                <li>✓ Premium positie</li>
+                <li>✓ Alleen zichtbaar op desktop/tablet</li>
+              </ul>
+            </div>
+            
+            <div className="bg-white p-6 rounded-2xl shadow-lg border-2 border-yellow-400">
+              <h3 className="text-xl font-bold text-blue-900 mb-4">📱 Mobile Banners</h3>
+              <p className="text-gray-700 mb-4">
+                Speciale advertenties geoptimaliseerd voor mobiele gebruikers. Groot bereik!
+              </p>
+              <ul className="space-y-2 text-sm text-gray-600">
+                <li>✓ Mobile banner: 320x100px</li>
+                <li>✓ Tussen content secties</li>
+                <li>✓ Sticky bottom banner mogelijk</li>
+                <li>✓ Hoge engagement op mobiel</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-8 bg-gradient-to-r from-blue-900 to-purple-900 p-8 rounded-2xl text-white text-center">
+            <h3 className="text-2xl font-bold mb-4">💼 Interesse in adverteren?</h3>
+            <p className="text-lg mb-6">Bereik duizenden luisteraars met uw boodschap!</p>
+            <a href="/adverteren" className="inline-block bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold px-8 py-4 rounded-full shadow-xl hover:scale-105 transition-all duration-300">
+              Bekijk alle mogelijkheden →
+            </a>
           </div>
         </div>
       </section>

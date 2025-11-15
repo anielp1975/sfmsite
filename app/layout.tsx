@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "./components/Header";
 import AudioPlayer from "./components/AudioPlayer";
 import Footer from "./components/Footer";
+import AnalyticsTracker from "./components/AnalyticsTracker";
 
 export const metadata: Metadata = {
   title: "Radio SunriseFM - 102.3 FM Rotterdam & 89.8 FM Den Haag",
@@ -17,6 +18,7 @@ export default function RootLayout({
   return (
     <html lang="nl">
       <body>
+        <AnalyticsTracker />
         <Header />
         {children}
         <Footer />
