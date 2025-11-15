@@ -1,3 +1,5 @@
+import WorldCupStandings from './components/WorldCupStandings'
+
 export default function Home() {
   return (
     <div className="min-h-screen pb-24">
@@ -141,6 +143,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* World Cup Standings */}
+      <WorldCupStandings />
 
       {/* CTA Section */}
       <section className="py-20 px-4 bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 relative overflow-hidden">
