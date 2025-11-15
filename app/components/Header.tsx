@@ -50,7 +50,7 @@ export default function Header() {
               />
               <div className="hidden sm:block">
                 <h1 className="text-2xl font-black text-blue-900">Radio SunriseFM</h1>
-                <p className="text-xs text-blue-700 font-bold">Rotterdam & Den Haag 🌅</p>
+                <p className="text-xs text-blue-700 font-bold">Grootste hindoestaanse radio station van Nederland</p>
               </div>
             </Link>
 
