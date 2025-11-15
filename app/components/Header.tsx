@@ -12,7 +12,7 @@ export default function Header() {
     { label: 'Adverteren', href: '/adverteren' },
     { label: 'Team', href: '/team' },
     { label: 'Contact', href: '/contact' },
-    { label: '📊 Stats', href: '/stats' },
+    // { label: '📊 Stats', href: '/stats' }, // Uitgeschakeld - later terugkomen
   ];
 
   return (

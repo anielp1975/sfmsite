@@ -1,5 +1,5 @@
 import WorldCupStandings from './components/WorldCupStandings'
-import AdBanner from './components/AdBanner'
+// import AdBanner from './components/AdBanner' // Uitgeschakeld - later terugkomen
 
 export default function Home() {
   return (
@@ -17,28 +17,14 @@ export default function Home() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-16">
             {/* Left side - Text */}
             <div className="flex-1 text-center md:text-left space-y-8">
-              <div className="inline-block bg-yellow-400 text-blue-900 px-6 py-2 rounded-full font-bold text-sm shadow-2xl animate-pulse">
-                🔴 NU LIVE
-              </div>
-              
               <h1 className="text-6xl md:text-8xl font-black leading-tight">
-                Radio<br />
                 <span className="text-yellow-400 drop-shadow-lg">SunriseFM</span>
               </h1>
               
               <p className="text-2xl md:text-3xl text-blue-100 font-light leading-relaxed max-w-2xl">
-                Jouw hindoestaanse hitstation.<br />
-                Non-stop muziek, vibes en verbinding. 🌅
+                De stem van de hindoestaanse gemeenschap.<br />
+                Van Nederland naar de wereld.
               </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-4">
-                <button className="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold text-lg px-10 py-5 rounded-full shadow-2xl hover:shadow-yellow-400/50 transform hover:scale-105 transition-all duration-300">
-                  🎵 Luister Nu
-                </button>
-                <button className="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white font-bold text-lg px-10 py-5 rounded-full border-2 border-white/30 hover:border-white/50 transform hover:scale-105 transition-all duration-300">
-                  📱 Download App
-                </button>
-              </div>
             </div>
             
             {/* Right side - Logo */}
@@ -63,8 +49,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Ad Banner 1 - Top Leaderboard */}
-      <AdBanner size="leaderboard" position="Positie 1: Direct na Hero sectie (hoogste zichtbaarheid)" />
+      {/* Ad Banner 1 - Top Leaderboard - UITGESCHAKELD */}
+      {/* <AdBanner size="leaderboard" position="Positie 1: Direct na Hero sectie (hoogste zichtbaarheid)" /> */}
 
       {/* Luister Via Section */}
       <section className="py-20 px-4 bg-gradient-to-b from-gray-50 to-white">
@@ -124,10 +110,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Ad Banner 2 - Rectangle */}
-      <div className="bg-white py-8">
+      {/* Ad Banner 2 - Rectangle - UITGESCHAKELD */}
+      {/* <div className="bg-white py-8">
         <AdBanner size="rectangle" position="Positie 2: Na 'Luister Via' sectie (midden content)" />
-      </div>
+      </div> */}
 
       {/* Features Section */}
       <section className="py-20 px-4 bg-gradient-to-br from-blue-900 to-blue-800 text-white">
@@ -170,18 +156,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Ad Banner 3 - Leaderboard */}
-      <div className="bg-gray-900 py-8">
+      {/* Ad Banner 3 - Leaderboard - UITGESCHAKELD */}
+      {/* <div className="bg-gray-900 py-8">
         <AdBanner size="leaderboard" position="Positie 3: Na 'Waarom SunriseFM' sectie" />
-      </div>
+      </div> */}
 
       {/* World Cup Standings */}
       <WorldCupStandings />
 
-      {/* Ad Banner 4 - Rectangle */}
-      <div className="bg-blue-900 py-8">
+      {/* Ad Banner 4 - Rectangle - UITGESCHAKELD */}
+      {/* <div className="bg-blue-900 py-8">
         <AdBanner size="rectangle" position="Positie 4: Na WK Kwalificatie stand (sportliefhebbers)" />
-      </div>
+      </div> */}
 
       {/* CTA Section */}
       <section className="py-20 px-4 bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 relative overflow-hidden">
@@ -210,13 +196,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Ad Banner 5 - Bottom Leaderboard */}
-      <div className="bg-gray-50 py-8">
+      {/* Ad Banner 5 - Bottom Leaderboard - UITGESCHAKELD */}
+      {/* <div className="bg-gray-50 py-8">
         <AdBanner size="leaderboard" position="Positie 5: Voor de footer (laatste impressie)" />
-      </div>
+      </div> */}
 
-      {/* Sidebar Ad Info Section */}
-      <section className="py-16 px-4 bg-gradient-to-b from-white to-gray-100">
+      {/* Sidebar Ad Info Section - UITGESCHAKELD */}
+      {/* <section className="py-16 px-4 bg-gradient-to-b from-white to-gray-100">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-blue-900 text-center mb-8">
             📢 Extra Advertentiemogelijkheden
@@ -257,7 +243,7 @@ export default function Home() {
             </a>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }
