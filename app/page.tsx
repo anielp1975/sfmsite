@@ -73,7 +73,7 @@ export default function Home() {
             {/* Kabel */}
             <div className="bg-gradient-to-br from-blue-600 to-blue-800 p-8 rounded-3xl shadow-xl hover:shadow-2xl transform hover:scale-110 hover:rotate-2 transition-all duration-300 cursor-pointer group relative">
               <div className="absolute top-3 right-3 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-black shadow-lg animate-pulse">
-                LANDELIJK
+                Heel Nederland
               </div>
               <div className="text-6xl mb-4 group-hover:scale-125 transition-transform duration-300">📺</div>
               <h3 className="text-2xl font-bold text-yellow-400 mb-2">Ziggo & KPN</h3>
@@ -103,12 +103,18 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Welkom bij Sunrise FM – De stem van de Hindoestaanse gemeenschap
+              Welkom bij Sunrise FM – Jouw geluid, jouw cultuur
             </h2>
             <div className="w-24 h-1 bg-yellow-400 mx-auto mb-8"></div>
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-4xl mx-auto space-y-6">
               <p className="text-lg md:text-xl text-blue-100 leading-relaxed">
-                Sunrise FM is dé Hindoestaanse radiozender van Rotterdam en omstreken. Met een kleurrijke mix van muziek, actualiteit, familieberichten en cultuur brengen wij dagelijks duizenden luisteraars samen – jong en oud, hier én in het buitenland. Via FM, DAB+, internet en kabel zijn wij 24/7 te beluisteren. Of je nu luistert voor Bollywoodmuziek, nieuws uit Suriname of gewoon voor een warme groet van familie: Sunrise FM is jouw vertrouwde geluid.
+                Sunrise FM is dé Hindoestaanse radiozender van Rotterdam en omstreken. Wij bieden onze luisteraars 24 uur per dag het beste van Bollywood: van tijdloze klassiekers tot de nieuwste blockbusters uit de grootste film- en muziekindustrie ter wereld. Bij ons voel je je thuis, of je nu houdt van muziek, cultuur, spiritualiteit of de vertrouwde klanken van je roots.
+              </p>
+              <p className="text-lg md:text-xl text-blue-100 leading-relaxed">
+                Onze programma's vormen een levendige mix van entertainment, sociaal-culturele thema's en religieuze onderwerpen. Met uitzendingen in zowel het Nederlands als het Hindoestaans (Sarnami) spreken we een breed en divers publiek aan – jong én oud, van alle achtergronden. Sunrise FM staat midden in de gemeenschap en geeft ook lokaal talent een podium: Hindoestaanse artiesten worden door ons actief gesteund als dragers van cultuur en identiteit.
+              </p>
+              <p className="text-lg md:text-xl text-blue-100 leading-relaxed">
+                Luister mee via FM, DAB+, internet of kabel – waar je ook bent, Sunrise FM verbindt.
               </p>
             </div>
           </div>
