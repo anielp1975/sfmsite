@@ -98,41 +98,17 @@ export default function Home() {
         <AdBanner size="rectangle" position="Positie 2: Na 'Luister Via' sectie (midden content)" />
       </div> */}
 
-      {/* Features Section */}
+      {/* Welcome Section */}
       <section className="py-20 px-4 bg-gradient-to-br from-blue-900 to-blue-800 text-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Waarom Radio SunriseFM?
+              Welkom bij Sunrise FM – De stem van de Hindoestaanse gemeenschap
             </h2>
-            <div className="w-24 h-1 bg-yellow-400 mx-auto"></div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Feature 1 */}
-            <div className="bg-white/10 backdrop-blur-lg p-8 rounded-2xl border-2 border-white/20 hover:border-yellow-400 hover:bg-white/20 hover:shadow-2xl hover:shadow-yellow-400/20 transform hover:scale-105 transition-all duration-300 group">
-              <div className="text-5xl mb-4 group-hover:animate-bounce">🎵</div>
-              <h3 className="text-2xl font-bold text-yellow-400 mb-4 group-hover:text-yellow-300">Beste Muziek</h3>
-              <p className="text-blue-100 group-hover:text-white">
-                Van klassiekers tot de nieuwste hits. Wij draaien de muziek waar jij van houdt!
-              </p>
-            </div>
-
-            {/* Feature 2 */}
-            <div className="bg-white/10 backdrop-blur-lg p-8 rounded-2xl border-2 border-white/20 hover:border-yellow-400 hover:bg-white/20 hover:shadow-2xl hover:shadow-yellow-400/20 transform hover:scale-105 transition-all duration-300 group">
-              <div className="text-5xl mb-4 group-hover:animate-bounce">📰</div>
-              <h3 className="text-2xl font-bold text-yellow-400 mb-4 group-hover:text-yellow-300">Lokaal Nieuws</h3>
-              <p className="text-blue-100 group-hover:text-white">
-                Blijf op de hoogte van het laatste nieuws uit Rotterdam en Den Haag
-              </p>
-            </div>
-
-            {/* Feature 3 */}
-            <div className="bg-white/10 backdrop-blur-lg p-8 rounded-2xl border-2 border-white/20 hover:border-yellow-400 hover:bg-white/20 hover:shadow-2xl hover:shadow-yellow-400/20 transform hover:scale-105 transition-all duration-300 group">
-              <div className="text-5xl mb-4 group-hover:animate-bounce">🎙️</div>
-              <h3 className="text-2xl font-bold text-yellow-400 mb-4 group-hover:text-yellow-300">Leuke Shows</h3>
-              <p className="text-blue-100 group-hover:text-white">
-                Ervaren DJ's en presentatoren zorgen voor entertainment de hele dag door
+            <div className="w-24 h-1 bg-yellow-400 mx-auto mb-8"></div>
+            <div className="max-w-4xl mx-auto">
+              <p className="text-lg md:text-xl text-blue-100 leading-relaxed">
+                Sunrise FM is dé Hindoestaanse radiozender van Rotterdam en omstreken. Met een kleurrijke mix van muziek, actualiteit, familieberichten en cultuur brengen wij dagelijks duizenden luisteraars samen – jong en oud, hier én in het buitenland. Via FM, DAB+, internet en kabel zijn wij 24/7 te beluisteren. Of je nu luistert voor Bollywoodmuziek, nieuws uit Suriname of gewoon voor een warme groet van familie: Sunrise FM is jouw vertrouwde geluid.
               </p>
             </div>
           </div>
