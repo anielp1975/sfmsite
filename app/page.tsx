@@ -48,17 +48,7 @@ export default function Home() {
       {/* Luister Via Section */}
       <section className="py-20 px-4 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-blue-900 mb-4">
-              Luister via
-            </h2>
-            <div className="w-24 h-1 bg-yellow-400 mx-auto mb-6"></div>
-            <p className="text-xl text-gray-600">
-              Meerdere manieren om Radio SunriseFM te beluisteren
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
             {/* FM Rotterdam */}
             <div className="bg-gradient-to-br from-yellow-400 to-yellow-500 p-8 rounded-3xl shadow-xl hover:shadow-2xl transform hover:scale-110 hover:-rotate-2 transition-all duration-300 cursor-pointer group">
               <div className="text-6xl mb-4 group-hover:scale-125 transition-transform duration-300">📻</div>
@@ -95,7 +85,20 @@ export default function Home() {
               <h3 className="text-2xl font-bold text-yellow-400 mb-2">Ziggo & KPN</h3>
               <p className="text-yellow-200 font-semibold">Ziggo 862</p>
               <p className="text-yellow-200 font-semibold">KPN 866</p>
+              <p className="text-yellow-200 font-semibold text-sm mt-2">Landelijk</p>
               <div className="mt-4 bg-yellow-400 text-blue-900 px-4 py-2 rounded-full text-sm font-bold inline-block group-hover:animate-pulse">
+                ✅ Beschikbaar
+              </div>
+            </div>
+
+            {/* Wereldwijd */}
+            <div className="bg-gradient-to-br from-purple-600 to-purple-800 p-8 rounded-3xl shadow-xl hover:shadow-2xl transform hover:scale-110 hover:-rotate-2 transition-all duration-300 cursor-pointer group">
+              <div className="text-6xl mb-4 group-hover:scale-125 transition-transform duration-300">🌍</div>
+              <h3 className="text-2xl font-bold text-yellow-400 mb-2">Wereldwijd</h3>
+              <p className="text-yellow-200 font-semibold text-sm">SunriseFM App</p>
+              <p className="text-yellow-200 font-semibold text-sm">Website</p>
+              <p className="text-yellow-200 font-semibold text-sm">TuneIn</p>
+              <div className="mt-4 bg-yellow-400 text-purple-900 px-4 py-2 rounded-full text-sm font-bold inline-block group-hover:animate-pulse">
                 ✅ Beschikbaar
               </div>
             </div>
