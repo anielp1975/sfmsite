@@ -1,45 +1,10 @@
+import Hero from './components/Hero'
 // import AdBanner from './components/AdBanner' // Uitgeschakeld - later terugkomen
 
 export default function Home() {
   return (
     <div className="min-h-screen pb-24">
-      {/* Hero Section */}
-      <section className="relative py-20 md:py-32 bg-gradient-to-br from-blue-900 via-purple-900 to-blue-900 text-white overflow-hidden">
-        {/* Animated background with floating glow effect */}
-        <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-yellow-400/20 rounded-full blur-3xl animate-float"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-blue-400/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
-          <div className="absolute top-1/2 left-1/2 w-72 h-72 bg-purple-400/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '4s' }}></div>
-        </div>
-        
-        <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
-          <div className="flex flex-col md:flex-row items-center justify-center md:justify-between gap-12 md:gap-16">
-            {/* Left side - Text */}
-            <div className="text-center md:text-left space-y-6">
-              <h1 className="text-5xl md:text-7xl font-black leading-tight">
-                <span className="text-yellow-400 drop-shadow-lg">SunriseFM</span>
-              </h1>
-              
-              <p className="text-xl md:text-2xl text-blue-100 font-light leading-relaxed max-w-xl">
-                De stem van de hindoestaanse gemeenschap.<br />
-                Van Nederland naar de wereld.
-              </p>
-            </div>
-            
-            {/* Right side - Logo */}
-            <div className="flex justify-center items-center">
-              <div className="relative">
-                <div className="absolute inset-0 bg-yellow-400/30 rounded-full blur-3xl animate-pulse"></div>
-                <img
-                  src="https://www.sunrisefm.eu/images/logo.jpg"
-                  alt="Radio SunriseFM Logo"
-                  className="relative h-64 w-auto md:h-80 drop-shadow-2xl transform hover:scale-105 transition-transform duration-700 rounded-3xl"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Hero />
 
       {/* Ad Banner 1 - Top Leaderboard - UITGESCHAKELD */}
       {/* <AdBanner size="leaderboard" position="Positie 1: Direct na Hero sectie (hoogste zichtbaarheid)" /> */}
