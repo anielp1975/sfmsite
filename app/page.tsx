@@ -1,4 +1,3 @@
-import WorldCupStandings from './components/WorldCupStandings'
 // import AdBanner from './components/AdBanner' // Uitgeschakeld - later terugkomen
 
 export default function Home() {
@@ -122,16 +121,9 @@ export default function Home() {
       </section>
 
       {/* Ad Banner 3 - Leaderboard - UITGESCHAKELD */}
+      {/* Ad Banner 3 - Leaderboard - UITGESCHAKELD */}
       {/* <div className="bg-gray-900 py-8">
-        <AdBanner size="leaderboard" position="Positie 3: Na 'Waarom SunriseFM' sectie" />
-      </div> */}
-
-      {/* World Cup Standings */}
-      <WorldCupStandings />
-
-      {/* Ad Banner 4 - Rectangle - UITGESCHAKELD */}
-      {/* <div className="bg-blue-900 py-8">
-        <AdBanner size="rectangle" position="Positie 4: Na WK Kwalificatie stand (sportliefhebbers)" />
+        <AdBanner size="leaderboard" position="Positie 3: Na welkomsectie" />
       </div> */}
 
       {/* CTA Section */}
