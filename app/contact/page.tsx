@@ -53,9 +53,9 @@ export default function Contact() {
   return (
     <div className="min-h-screen pb-24">
       <Hero 
-        title="Contact" 
-        subtitle="Neem contact met ons op.\nWe horen graag van je!"
-        showLogo={false}
+        title="SunriseFM" 
+        subtitle="De stem van de hindoestaanse gemeenschap.\nVan Nederland naar de wereld."
+        showLogo={true}
       />
 
       <section className="py-20 px-4 bg-gradient-to-br from-blue-50 to-purple-50">
