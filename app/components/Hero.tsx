@@ -10,7 +10,7 @@ export default function Hero({
   showLogo = true 
 }: HeroProps) {
   return (
-    <section className="relative py-20 md:py-32 bg-gradient-to-br from-blue-900 via-purple-900 to-blue-900 text-white overflow-hidden">
+    <section className="relative py-12 md:py-20 bg-gradient-to-br from-blue-900 via-purple-900 to-blue-900 text-white overflow-hidden">
       {/* Animated background with floating glow effect */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-yellow-400/20 rounded-full blur-3xl animate-float"></div>
@@ -19,14 +19,14 @@ export default function Hero({
       </div>
       
       <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
-        <div className="flex flex-col md:flex-row items-center justify-center md:justify-between gap-12 md:gap-16">
+        <div className="flex flex-col md:flex-row items-center justify-center md:justify-between gap-8 md:gap-12">
           {/* Left side - Text */}
-          <div className="text-center md:text-left space-y-6">
-            <h1 className="text-5xl md:text-7xl font-black leading-tight">
+          <div className="text-center md:text-left space-y-4">
+            <h1 className="text-4xl md:text-6xl font-black leading-tight">
               <span className="text-yellow-400 drop-shadow-lg">{title}</span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-blue-100 font-light leading-relaxed max-w-xl whitespace-pre-line">
+            <p className="text-lg md:text-xl text-blue-100 font-light leading-relaxed max-w-xl whitespace-pre-line">
               {subtitle}
             </p>
           </div>
@@ -39,7 +39,7 @@ export default function Hero({
                 <img
                   src="https://www.sunrisefm.eu/images/logo.jpg"
                   alt="Radio SunriseFM Logo"
-                  className="relative h-64 w-auto md:h-80 drop-shadow-2xl transform hover:scale-105 transition-transform duration-700 rounded-3xl"
+                  className="relative h-48 w-auto md:h-64 drop-shadow-2xl transform hover:scale-105 transition-transform duration-700 rounded-3xl"
                 />
               </div>
             </div>
