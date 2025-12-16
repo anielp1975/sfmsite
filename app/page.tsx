@@ -1,4 +1,5 @@
 import Hero from './components/Hero'
+import LiveWeather from './components/LiveWeather'
 // import AdBanner from './components/AdBanner' // Uitgeschakeld - later terugkomen
 
 export default function Home() {
@@ -63,27 +64,61 @@ export default function Home() {
       </div> */}
 
       {/* Welcome Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-blue-900 to-blue-800 text-white">
+      <section className="py-20 px-4 bg-gradient-to-br from-blue-900 via-purple-900 to-blue-900 text-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Welkom bij Sunrise FM – Jouw geluid, jouw cultuur
-            </h2>
-            <div className="w-24 h-1 bg-yellow-400 mx-auto mb-8"></div>
-            <div className="max-w-4xl mx-auto space-y-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <div className="inline-flex items-center gap-3 bg-white/10 border border-yellow-400/60 text-yellow-200 font-semibold px-4 py-2 rounded-full uppercase tracking-widest text-xs">
+                <span>Luister waar je ook bent</span>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-black leading-tight">
+                Welkom bij Sunrise FM – Jouw geluid, jouw cultuur
+              </h2>
               <p className="text-lg md:text-xl text-blue-100 leading-relaxed">
-                Sunrise FM is dé Hindoestaanse radiozender van Rotterdam en omstreken. Wij bieden onze luisteraars 24 uur per dag het beste van Bollywood: van tijdloze klassiekers tot de nieuwste blockbusters uit de grootste film- en muziekindustrie ter wereld. Bij ons voel je je thuis, of je nu houdt van muziek, cultuur, spiritualiteit of de vertrouwde klanken van je roots.
+                Sunrise FM is dé Hindoestaanse radiozender van Rotterdam en omstreken. Wij bieden 24/7 het beste van Bollywood – van gouden klassiekers tot gloednieuwe hits – en zorgen voor een warme verbinding tussen Nederland, Suriname en de rest van de wereld.
               </p>
-              <p className="text-lg md:text-xl text-blue-100 leading-relaxed">
-                Onze programma's vormen een levendige mix van entertainment, sociaal-culturele thema's en religieuze onderwerpen. Met uitzendingen in zowel het Nederlands als het Hindoestaans (Sarnami) spreken we een breed en divers publiek aan – jong én oud, van alle achtergronden. Sunrise FM staat midden in de gemeenschap en geeft ook lokaal talent een podium: Hindoestaanse artiesten worden door ons actief gesteund als dragers van cultuur en identiteit.
-              </p>
-              <p className="text-lg md:text-xl text-blue-100 leading-relaxed">
-                Luister mee via FM, DAB+, internet of kabel – waar je ook bent, Sunrise FM verbindt.
-              </p>
+              <div className="grid sm:grid-cols-2 gap-6">
+                <div className="bg-white/10 border border-white/20 rounded-2xl p-6 shadow-xl backdrop-blur">
+                  <h3 className="text-xl font-bold text-yellow-300 mb-2">Cultuur & Community</h3>
+                  <p className="text-sm text-blue-100">
+                    Programma’s in Nederlands en Hindoestaans (Sarnami) met aandacht voor muziek, familieberichten, spiritualiteit en lokaal talent.
+                  </p>
+                </div>
+                <div className="bg-white/10 border border-white/20 rounded-2xl p-6 shadow-xl backdrop-blur">
+                  <h3 className="text-xl font-bold text-yellow-300 mb-2">Overal te beluisteren</h3>
+                  <p className="text-sm text-blue-100">
+                    FM, DAB+, kabel, app en online stream – Sunrise FM is altijd dichtbij, waar je ook bent.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="absolute -top-6 -left-6 w-72 h-72 bg-yellow-400/30 rounded-full blur-3xl"></div>
+              <div className="absolute bottom-0 right-0 w-64 h-64 bg-blue-400/20 rounded-full blur-3xl"></div>
+              <div className="relative bg-white/10 border border-white/20 rounded-3xl p-10 shadow-2xl backdrop-blur-lg">
+                <img
+                  src="https://www.sunrisefm.eu/images/logo.jpg"
+                  alt="Radio SunriseFM logo"
+                  className="w-48 h-auto mx-auto mb-6 drop-shadow-2xl rounded-2xl"
+                />
+                <div className="space-y-4 text-center">
+                  <p className="text-lg text-blue-100">
+                    “De stem van de Hindoestaanse gemeenschap. Van Nederland naar de wereld.”
+                  </p>
+                  <div className="flex justify-center gap-3 flex-wrap">
+                    <span className="px-4 py-2 rounded-full bg-yellow-400 text-blue-900 font-bold text-sm shadow-lg">Sinds 2000+</span>
+                    <span className="px-4 py-2 rounded-full bg-white/20 text-yellow-200 font-semibold text-sm">17 Omroepers</span>
+                    <span className="px-4 py-2 rounded-full bg-white/20 text-yellow-200 font-semibold text-sm">24/7 Live</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
+
+      <LiveWeather className="pt-0" />
 
       {/* Ad Banner 3 - Leaderboard - UITGESCHAKELD */}
       {/* Ad Banner 3 - Leaderboard - UITGESCHAKELD */}
