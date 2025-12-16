@@ -6,6 +6,13 @@ type WeatherLocation = {
   timezone: string
 }
 
+type ForecastDay = {
+  date: string
+  tempMax: number
+  tempMin: number
+  description: string
+}
+
 type WeatherInfo = {
   region: string
   city: string
@@ -14,6 +21,7 @@ type WeatherInfo = {
   windSpeed: number
   description: string
   updatedAt: string
+  forecast: ForecastDay[]
 }
 
 const DEFAULT_LOCATIONS: WeatherLocation[] = [
@@ -68,6 +76,8 @@ async function fetchWeather(location: WeatherLocation): Promise<WeatherInfo | nu
   url.searchParams.set('latitude', location.latitude.toString())
   url.searchParams.set('longitude', location.longitude.toString())
   url.searchParams.set('current', 'temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code')
+  url.searchParams.set('daily', 'weather_code,temperature_2m_max,temperature_2m_min')
+  url.searchParams.set('forecast_days', '5')
   url.searchParams.set('timezone', location.timezone)
 
   try {
@@ -85,11 +95,31 @@ async function fetchWeather(location: WeatherLocation): Promise<WeatherInfo | nu
         weather_code: number
         time: string
       }
+      daily?: {
+        time: string[]
+        temperature_2m_max: number[]
+        temperature_2m_min: number[]
+        weather_code: number[]
+      }
     }
 
     if (!data.current) {
       throw new Error('Geen weerdata beschikbaar')
     }
+    const daily = data.daily
+    const forecast: ForecastDay[] =
+      daily?.time?.length && daily.temperature_2m_max?.length && daily.temperature_2m_min?.length
+        ? daily.time
+            .slice(0, 5)
+            // Map the daily arrays into display-friendly forecast entries.
+            .map((date, index) => ({
+              date,
+              tempMax: daily.temperature_2m_max[index] ?? NaN,
+              tempMin: daily.temperature_2m_min[index] ?? NaN,
+              description: describeWeather(daily.weather_code?.[index] ?? data.current!.weather_code),
+            }))
+            .filter((entry) => Number.isFinite(entry.tempMax) && Number.isFinite(entry.tempMin))
+        : []
 
     return {
       region: location.region,
@@ -99,6 +129,7 @@ async function fetchWeather(location: WeatherLocation): Promise<WeatherInfo | nu
       windSpeed: data.current.wind_speed_10m,
       description: describeWeather(data.current.weather_code),
       updatedAt: data.current.time,
+      forecast,
     }
   } catch (error) {
     console.error('Kan weergegevens niet ophalen:', error)
@@ -167,6 +198,31 @@ export default async function LiveWeather({
                       <p className="text-xl font-semibold">{Math.round(weather.windSpeed)} km/u</p>
                     </div>
                   </div>
+
+                  {weather.forecast.length > 0 && (
+                    <div className="mt-8">
+                      <div className="flex items-center justify-between mb-4">
+                        <h4 className="text-lg font-semibold text-white">Komende 5 dagen</h4>
+                        <p className="text-xs uppercase tracking-widest text-blue-200">Live updates</p>
+                      </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-5 gap-4">
+                        {weather.forecast.map((day) => (
+                          <div key={day.date} className="bg-white/10 border border-white/10 rounded-2xl px-4 py-3 text-center">
+                            <p className="text-sm font-semibold text-white">
+                              {new Date(day.date).toLocaleDateString('nl-NL', {
+                                weekday: 'short',
+                                day: 'numeric',
+                                month: 'short',
+                              })}
+                            </p>
+                            <p className="text-sm text-blue-100 mt-1">{day.description}</p>
+                            <p className="text-lg font-bold text-yellow-100 mt-2">{Math.round(day.tempMax)}°</p>
+                            <p className="text-xs text-blue-200">Laag: {Math.round(day.tempMin)}°</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             ))
