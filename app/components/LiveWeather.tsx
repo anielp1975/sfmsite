@@ -1,3 +1,5 @@
+import LiveClock from './LiveClock'
+
 type WeatherLocation = {
   region: string
   city: string
@@ -22,6 +24,7 @@ type WeatherInfo = {
   description: string
   updatedAt: string
   forecast: ForecastDay[]
+  timezone: string
 }
 
 const DEFAULT_LOCATIONS: WeatherLocation[] = [
@@ -130,6 +133,7 @@ async function fetchWeather(location: WeatherLocation): Promise<WeatherInfo | nu
       description: describeWeather(data.current.weather_code),
       updatedAt: data.current.time,
       forecast,
+      timezone: location.timezone,
     }
   } catch (error) {
     console.error('Kan weergegevens niet ophalen:', error)
@@ -167,16 +171,22 @@ export default async function LiveWeather({
               >
                 <div className="absolute inset-0 opacity-10 bg-gradient-to-br from-yellow-400 via-yellow-200 to-yellow-500 blur-3xl"></div>
                 <div className="relative">
-                  <div className="flex items-center justify-between mb-6">
+                  <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
                     <div>
                       <p className="text-sm uppercase tracking-widest text-yellow-200">{weather.region}</p>
                       <h3 className="text-2xl font-bold text-white">{weather.city}</h3>
                     </div>
-                    <div className="bg-white/20 text-yellow-200 px-4 py-2 rounded-full text-sm font-semibold">
-                      Laatste update: {new Date(weather.updatedAt).toLocaleTimeString('nl-NL', {
-                        hour: '2-digit',
-                        minute: '2-digit',
-                      })}
+                    <div className="flex flex-col items-end gap-2 min-w-[180px]">
+                      <div className="bg-white/20 text-yellow-200 px-4 py-2 rounded-full text-sm font-semibold">
+                        Laatste update: {new Date(weather.updatedAt).toLocaleTimeString('nl-NL', {
+                          hour: '2-digit',
+                          minute: '2-digit',
+                        })}
+                      </div>
+                      <div className="flex items-center gap-2 text-sm text-blue-100" aria-label={`Lokale tijd in ${weather.city}`}>
+                        <span className="text-yellow-200">🕒</span>
+                        <LiveClock timezone={weather.timezone} />
+                      </div>
                     </div>
                   </div>
 
