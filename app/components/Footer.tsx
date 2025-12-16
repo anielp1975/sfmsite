@@ -13,7 +13,6 @@ export default function Footer() {
               />
             </div>
             <h3 className="text-3xl font-black text-yellow-300">Radio SunriseFM</h3>
-            <p className="text-yellow-200 text-sm mt-2 font-semibold">De beste muziek voor Rotterdam & Den Haag 🌅</p>
           </div>
 
           {/* Luister via */}
@@ -83,9 +82,6 @@ export default function Footer() {
           <div className="text-center">
             <p className="text-lg font-bold text-yellow-200 mb-2">
               © {new Date().getFullYear()} Radio SunriseFM. Alle rechten voorbehouden.
-            </p>
-            <p className="text-sm text-yellow-300 font-semibold">
-              De beste muziek voor Rotterdam & Den Haag 🌅
             </p>
             <div className="mt-4 flex justify-center gap-4">
               <span className="text-xs bg-yellow-400 text-blue-900 px-3 py-1 rounded-full font-bold">102.3 FM</span>
