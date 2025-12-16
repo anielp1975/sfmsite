@@ -56,9 +56,6 @@ export default function Team() {
                   <div className="px-6 pb-8">
                     <h3 className="text-2xl font-bold text-blue-900 text-center mb-2">{member}</h3>
                     <p className="text-center text-yellow-500 font-semibold">Omroeper</p>
-                    <p className="mt-4 text-center text-blue-700 text-sm leading-relaxed">
-                      Verbindt luisteraars met nieuws, muziek en community vanuit onze studio in Rotterdam.
-                    </p>
                   </div>
                 </div>
               ))}
