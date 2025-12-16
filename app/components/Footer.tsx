@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <footer className="bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 text-white py-12 border-t-4 border-yellow-400 shadow-2xl">
@@ -73,6 +75,15 @@ export default function Footer() {
                   <span>Ons Team</span>
                 </a>
               </li>
+              <li>
+                <Link
+                  href="/privacy"
+                  className="flex items-center justify-center md:justify-start gap-3 bg-white/10 p-3 rounded-xl hover:bg-yellow-400 hover:text-blue-900 transition-all duration-300 font-bold group"
+                >
+                  <span className="text-2xl">📄</span>
+                  <span>Privacy & Cookies</span>
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -82,6 +93,11 @@ export default function Footer() {
           <div className="text-center">
             <p className="text-lg font-bold text-yellow-200 mb-2">
               © {new Date().getFullYear()} Radio SunriseFM. Alle rechten voorbehouden.
+            </p>
+            <p className="text-sm text-yellow-300 font-semibold">
+              <Link href="/privacy" className="hover:text-yellow-100 underline">
+                Privacy- en cookieverklaring
+              </Link>
             </p>
             <div className="mt-4 flex justify-center gap-4">
               <span className="text-xs bg-yellow-400 text-blue-900 px-3 py-1 rounded-full font-bold">102.3 FM</span>

@@ -5,6 +5,7 @@ import AudioPlayer from "./components/AudioPlayer";
 import Footer from "./components/Footer";
 import AnalyticsTracker from "./components/AnalyticsTracker";
 import InstallPrompt from "./components/InstallPrompt";
+import CookieConsent from "./components/CookieConsent";
 
 export const metadata: Metadata = {
   title: "Radio SunriseFM - 102.3 FM Rotterdam & 89.8 FM Den Haag",
@@ -50,6 +51,7 @@ export default function RootLayout({
         <Footer />
         <AudioPlayer />
         <InstallPrompt />
+        <CookieConsent />
       </body>
     </html>
   );
