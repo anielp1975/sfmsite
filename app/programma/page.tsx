@@ -115,8 +115,6 @@ const weekSchedule = [
   }
 ]
 
-const hourlyHighlight = 'Elk uur: Commerciële break en Uitgaansagenda met de beste tips uit Paramaribo, Amsterdam en omstreken.'
-
 export default function Programma() {
   return (
     <div className="min-h-screen pb-24">
@@ -132,9 +130,6 @@ export default function Programma() {
             <h2 className="text-3xl font-bold text-blue-900 mb-6">Programmaoverzicht</h2>
             <p className="text-lg text-gray-700 mb-6">
               SunriseFM brengt je elke dag een vaste dagindeling van 08:00 tot 20:00 uur en schakelt daarna moeiteloos over op een sfeervol avond- en nachtprogramma.
-            </p>
-            <p className="text-gray-700 font-semibold bg-blue-100 border border-blue-200 rounded-xl px-6 py-4 inline-block">
-              {hourlyHighlight}
             </p>
           </div>
 
