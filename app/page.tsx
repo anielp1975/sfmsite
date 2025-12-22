@@ -1,6 +1,9 @@
 import Hero from './components/Hero'
 import LiveWeather from './components/LiveWeather'
+import StarnieuwsFeed from './components/StarnieuwsFeed'
 // import AdBanner from './components/AdBanner' // Uitgeschakeld - later terugkomen
+
+export const revalidate = 3600
 
 export default function Home() {
   return (
@@ -120,38 +123,7 @@ export default function Home() {
 
       <LiveWeather className="pt-0" />
 
-      {/* Ad Banner 3 - Leaderboard - UITGESCHAKELD */}
-      {/* Ad Banner 3 - Leaderboard - UITGESCHAKELD */}
-      {/* <div className="bg-gray-900 py-8">
-        <AdBanner size="leaderboard" position="Positie 3: Na welkomsectie" />
-      </div> */}
-
-      {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-1/4 w-64 h-64 bg-blue-900 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-900 rounded-full blur-3xl animate-pulse"></div>
-        </div>
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h2 className="text-4xl md:text-5xl font-bold text-blue-900 mb-6 animate-fade-in">
-            Luister nu live! 🎧
-          </h2>
-          <p className="text-xl text-blue-800 mb-8">
-            Klik op play in de speler onderaan deze pagina en geniet van de beste muziek
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <div className="bg-blue-900 text-yellow-400 px-6 py-3 rounded-full font-bold shadow-lg hover:shadow-2xl hover:scale-110 transform transition-all duration-300 cursor-pointer">
-              🌅 24/7 Online
-            </div>
-            <div className="bg-blue-900 text-yellow-400 px-6 py-3 rounded-full font-bold shadow-lg hover:shadow-2xl hover:scale-110 transform transition-all duration-300 cursor-pointer">
-              🎵 Geen Reclame
-            </div>
-            <div className="bg-blue-900 text-yellow-400 px-6 py-3 rounded-full font-bold shadow-lg hover:shadow-2xl hover:scale-110 transform transition-all duration-300 cursor-pointer">
-              💯 Gratis
-            </div>
-          </div>
-        </div>
-      </section>
+      <StarnieuwsFeed />
 
       {/* Ad Banner 5 - Bottom Leaderboard - UITGESCHAKELD */}
       {/* <div className="bg-gray-50 py-8">
