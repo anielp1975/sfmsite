@@ -1,7 +1,7 @@
 import Hero from './components/Hero'
 import LiveWeather from './components/LiveWeather'
 import StarnieuwsFeed from './components/StarnieuwsFeed'
-// import AdBanner from './components/AdBanner' // Uitgeschakeld - later terugkomen
+import AdBanner from './components/AdBanner'
 
 export const revalidate = 3600
 
@@ -10,8 +10,8 @@ export default function Home() {
     <div className="min-h-screen pb-24">
       <Hero />
 
-      {/* Ad Banner 1 - Top Leaderboard - UITGESCHAKELD */}
-      {/* <AdBanner size="leaderboard" position="Positie 1: Direct na Hero sectie (hoogste zichtbaarheid)" /> */}
+      {/* Ad Banner 1 - Top Leaderboard */}
+      <AdBanner size="leaderboard" position="Positie 1: Direct na Hero sectie (hoogste zichtbaarheid)" />
 
       {/* Luister Via Section */}
       <section className="py-20 px-4 bg-gradient-to-b from-gray-50 to-white">
@@ -61,10 +61,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Ad Banner 2 - Rectangle - UITGESCHAKELD */}
-      {/* <div className="bg-white py-8">
+      {/* Ad Banner 2 - Rectangle */}
+      <div className="bg-white py-8">
         <AdBanner size="rectangle" position="Positie 2: Na 'Luister Via' sectie (midden content)" />
-      </div> */}
+      </div>
 
       {/* Welcome Section */}
       <section className="py-20 px-4 bg-gradient-to-br from-blue-900 via-purple-900 to-blue-900 text-white">
@@ -125,13 +125,13 @@ export default function Home() {
 
       <StarnieuwsFeed />
 
-      {/* Ad Banner 5 - Bottom Leaderboard - UITGESCHAKELD */}
-      {/* <div className="bg-gray-50 py-8">
+      {/* Ad Banner 5 - Bottom Leaderboard */}
+      <div className="bg-gray-50 py-8">
         <AdBanner size="leaderboard" position="Positie 5: Voor de footer (laatste impressie)" />
-      </div> */}
+      </div>
 
-      {/* Sidebar Ad Info Section - UITGESCHAKELD */}
-      {/* <section className="py-16 px-4 bg-gradient-to-b from-white to-gray-100">
+      {/* Sidebar Ad Info Section */}
+      <section className="py-16 px-4 bg-gradient-to-b from-white to-gray-100">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-blue-900 text-center mb-8">
             📢 Extra Advertentiemogelijkheden
@@ -172,7 +172,7 @@ export default function Home() {
             </a>
           </div>
         </div>
-      </section> */}
+      </section>
     </div>
   );
 }
