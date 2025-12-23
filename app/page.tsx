@@ -15,7 +15,7 @@ export default function Home() {
 
       {/* Ad Banner Showcase */}
       <section className="py-12 px-4 bg-gray-50 relative">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-screen-2xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-6">Advertentie voorbeelden</h2>
 
           {/* Verticale banners links en rechts (desktop) */}
