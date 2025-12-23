@@ -3,6 +3,8 @@ import LiveWeather from './components/LiveWeather'
 import StarnieuwsFeed from './components/StarnieuwsFeed'
 import AdBanner from './components/AdBanner'
 
+const LEADERBOARD_EMBED_URL = 'https://cms.sunrisefm.eu/?ptbm_embed=13'
+
 export const revalidate = 3600
 
 export default function Home() {
@@ -11,7 +13,11 @@ export default function Home() {
       <Hero />
 
       {/* Ad Banner 1 - Top Leaderboard */}
-      <AdBanner size="leaderboard" position="Positie 1: Direct na Hero sectie (hoogste zichtbaarheid)" />
+      <AdBanner
+        size="leaderboard"
+        position="Positie 1: Direct na Hero sectie (hoogste zichtbaarheid)"
+        embedUrl={LEADERBOARD_EMBED_URL}
+      />
 
       {/* Ad Banner Showcase */}
       <section className="py-12 px-4 bg-gray-50 relative">
@@ -29,8 +35,8 @@ export default function Home() {
           <div className="space-y-10">
             <div className="overflow-x-auto pb-2">
               <div className="flex gap-6 min-w-max">
-                <AdBanner size="leaderboard" position="Leaderboard 1 (728x90)" />
-                <AdBanner size="leaderboard" position="Leaderboard 2 (728x90)" />
+                <AdBanner size="leaderboard" position="Leaderboard 1 (728x90)" embedUrl={LEADERBOARD_EMBED_URL} />
+                <AdBanner size="leaderboard" position="Leaderboard 2 (728x90)" embedUrl={LEADERBOARD_EMBED_URL} />
               </div>
             </div>
 
@@ -54,7 +60,7 @@ export default function Home() {
                     Voorbeeld van content met echte zijbanners ernaast. Scroll mee en zie hoe de banners zichtbaar blijven op desktop.
                   </p>
                   <AdBanner size="rectangle" position="Inline 300x250" />
-                  <AdBanner size="leaderboard" position="Inline 728x90 (desktop)" />
+                  <AdBanner size="leaderboard" position="Inline 728x90 (desktop)" embedUrl={LEADERBOARD_EMBED_URL} />
                 </div>
 
                 <div className="hidden xl:block">
@@ -187,7 +193,11 @@ export default function Home() {
 
       {/* Ad Banner 5 - Bottom Leaderboard */}
       <div className="bg-gray-50 py-8">
-        <AdBanner size="leaderboard" position="Positie 5: Voor de footer (laatste impressie)" />
+        <AdBanner
+          size="leaderboard"
+          position="Positie 5: Voor de footer (laatste impressie)"
+          embedUrl={LEADERBOARD_EMBED_URL}
+        />
       </div>
 
       {/* Sidebar Ad Info Section */}
