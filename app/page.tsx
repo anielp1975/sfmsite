@@ -39,6 +39,36 @@ export default function Home() {
               <AdBanner size="rectangle" position="Rectangle 2 (300x250)" />
               <AdBanner size="rectangle" position="Rectangle 3 (300x250)" />
             </div>
+
+            <div className="bg-white rounded-2xl border border-blue-100 shadow-xl p-6">
+              <h3 className="text-xl font-bold text-blue-900 mb-4">Sidebar banners in praktijk</h3>
+              <div className="grid grid-cols-1 xl:grid-cols-[180px_1fr_180px] gap-6 items-start">
+                <div className="hidden xl:block">
+                  <div className="sticky top-24">
+                    <AdBanner size="skyscraper" position="Sidebar links 160x600" />
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <p className="text-gray-700 text-sm">
+                    Voorbeeld van content met echte zijbanners ernaast. Scroll mee en zie hoe de banners zichtbaar blijven op desktop.
+                  </p>
+                  <AdBanner size="rectangle" position="Inline 300x250" />
+                  <AdBanner size="leaderboard" position="Inline 728x90 (desktop)" />
+                </div>
+
+                <div className="hidden xl:block">
+                  <div className="sticky top-24">
+                    <AdBanner size="skyscraper" position="Sidebar rechts 160x600" />
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-4 xl:hidden grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <AdBanner size="mobile" position="Mobile 320x100" />
+                <AdBanner size="rectangle" position="Inline 300x250" />
+              </div>
+            </div>
           </div>
         </div>
       </section>
