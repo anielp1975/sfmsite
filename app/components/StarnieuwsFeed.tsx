@@ -27,7 +27,7 @@ async function fetchNews(): Promise<RssItem[]> {
     const items = parsed?.rss?.channel?.item as RssItem | RssItem[] | undefined
     const normalized = Array.isArray(items) ? items : items ? [items] : []
 
-    return normalized.slice(0, 5)
+    return normalized.slice(0, 3)
   } catch (error) {
     console.error('Failed to load Starnieuws feed', error)
     return []
@@ -52,26 +52,7 @@ export default async function StarnieuwsFeed() {
   return (
     <section className="py-20 px-4 bg-gradient-to-br from-white via-slate-50 to-blue-50">
       <div className="max-w-7xl mx-auto space-y-10">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-          <div className="space-y-2">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-900 text-yellow-300 font-semibold shadow-lg">
-              <span>📰</span>
-              <span>Starnieuws live updates</span>
-            </div>
-            <h2 className="text-3xl md:text-4xl font-black text-blue-900">Laatste 5 berichten</h2>
-            <p className="text-slate-700 max-w-2xl">
-              Vers van starnieuws.com, elk uur ververst. Klik om het volledige bericht in een nieuw tabblad te lezen.
-            </p>
-          </div>
-          <a
-            href="https://www.starnieuws.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-yellow-400 text-blue-900 font-bold shadow-lg hover:shadow-2xl hover:-translate-y-0.5 transition duration-200"
-          >
-            Naar Starnieuws →
-          </a>
-        </div>
+        <h2 className="text-3xl md:text-4xl font-black text-blue-900">Starnieuws</h2>
 
         {items.length === 0 ? (
           <div className="bg-white border border-blue-100 rounded-3xl p-8 shadow-xl text-slate-600">
@@ -89,10 +70,6 @@ export default async function StarnieuwsFeed() {
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-yellow-100/30 via-transparent to-blue-100/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="relative p-6 space-y-3">
-                  <div className="flex items-center gap-2 text-sm font-semibold text-blue-800">
-                    <span className="text-lg">⚡</span>
-                    <span>Direct naar bron</span>
-                  </div>
                   <h3 className="text-xl font-bold text-blue-950 leading-tight group-hover:text-blue-800 transition-colors duration-200">
                     {item.title ?? 'Onbekend bericht'}
                   </h3>
@@ -105,6 +82,7 @@ export default async function StarnieuwsFeed() {
                       →
                     </span>
                   </div>
+                  <p className="text-xs text-slate-500">Bron: starnieuws.com</p>
                 </div>
               </a>
             ))}
