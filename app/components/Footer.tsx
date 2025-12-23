@@ -72,8 +72,8 @@ export default function Footer() {
               <div>
                 <p className="text-sm uppercase tracking-wide text-blue-100 font-semibold">Bezoek</p>
                 <p className="text-lg font-semibold text-white leading-relaxed">
-                  Rotterdam Centrum<br />
-                  Altijd welkom op afspraak
+                  Korte Bajonetstraat 25<br />
+                  3014ZS Rotterdam
                 </p>
               </div>
             </div>
