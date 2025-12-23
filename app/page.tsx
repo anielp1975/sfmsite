@@ -4,6 +4,7 @@ import StarnieuwsFeed from './components/StarnieuwsFeed'
 import AdBanner from './components/AdBanner'
 
 const LEADERBOARD_EMBED_URL = 'https://cms.sunrisefm.eu/?ptbm_embed=13'
+const LEADERBOARD_HTML = '<a href="https://cms.sunrisefm.eu/?ptbm_click=13" target="_blank" rel="noopener noreferrer"><img src="https://cms.sunrisefm.eu/wp-content/uploads/2025/12/istockphoto-1165218630-1024x1024-1.jpg" alt="" style="max-width:100%;height:auto;border:0;" /></a>'
 
 export const revalidate = 3600
 
@@ -16,7 +17,7 @@ export default function Home() {
       <AdBanner
         size="leaderboard"
         position="Positie 1: Direct na Hero sectie (hoogste zichtbaarheid)"
-        embedUrl={LEADERBOARD_EMBED_URL}
+        html={LEADERBOARD_HTML}
       />
 
       {/* Ad Banner Showcase */}
@@ -35,8 +36,8 @@ export default function Home() {
           <div className="space-y-10">
             <div className="overflow-x-auto pb-2">
               <div className="flex gap-6 min-w-max">
-                <AdBanner size="leaderboard" position="Leaderboard 1 (728x90)" embedUrl={LEADERBOARD_EMBED_URL} />
-                <AdBanner size="leaderboard" position="Leaderboard 2 (728x90)" embedUrl={LEADERBOARD_EMBED_URL} />
+                <AdBanner size="leaderboard" position="Leaderboard 1 (728x90)" html={LEADERBOARD_HTML} />
+                <AdBanner size="leaderboard" position="Leaderboard 2 (728x90)" html={LEADERBOARD_HTML} />
               </div>
             </div>
 
@@ -60,7 +61,7 @@ export default function Home() {
                     Voorbeeld van content met echte zijbanners ernaast. Scroll mee en zie hoe de banners zichtbaar blijven op desktop.
                   </p>
                   <AdBanner size="rectangle" position="Inline 300x250" />
-                  <AdBanner size="leaderboard" position="Inline 728x90 (desktop)" embedUrl={LEADERBOARD_EMBED_URL} />
+                  <AdBanner size="leaderboard" position="Inline 728x90 (desktop)" html={LEADERBOARD_HTML} />
                 </div>
 
                 <div className="hidden xl:block">
@@ -196,7 +197,7 @@ export default function Home() {
         <AdBanner
           size="leaderboard"
           position="Positie 5: Voor de footer (laatste impressie)"
-          embedUrl={LEADERBOARD_EMBED_URL}
+          html={LEADERBOARD_HTML}
         />
       </div>
 

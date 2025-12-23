@@ -4,9 +4,10 @@ interface AdBannerProps {
   size: 'leaderboard' | 'rectangle' | 'skyscraper' | 'mobile'
   position: string
   embedUrl?: string
+  html?: string
 }
 
-export default function AdBanner({ size, position, embedUrl }: AdBannerProps) {
+export default function AdBanner({ size, position, embedUrl, html }: AdBannerProps) {
   const dimensions = {
     leaderboard: { width: '728px', height: '90px', mobileWidth: '320px', mobileHeight: '50px' },
     rectangle: { width: '300px', height: '250px', mobileWidth: '300px', mobileHeight: '250px' },
@@ -26,7 +27,9 @@ export default function AdBanner({ size, position, embedUrl }: AdBannerProps) {
           maxWidth: '100%'
         }}
       >
-        {embedUrl ? (
+        {html ? (
+          <div className="w-full h-full" dangerouslySetInnerHTML={{ __html: html }} />
+        ) : embedUrl ? (
           <iframe
             src={embedUrl}
             title={`Advertentie ${position}`}
