@@ -178,6 +178,9 @@ export default function Home() {
                 <li>✓ Premium positie</li>
                 <li>✓ Alleen zichtbaar op desktop/tablet</li>
               </ul>
+              <div className="mt-6 flex justify-center">
+                <AdBanner size="skyscraper" position="Voorbeeld sidebar 160x600" />
+              </div>
             </div>
             
             <div className="bg-white p-6 rounded-2xl shadow-lg border-2 border-yellow-400">
@@ -191,6 +194,10 @@ export default function Home() {
                 <li>✓ Sticky bottom banner mogelijk</li>
                 <li>✓ Hoge engagement op mobiel</li>
               </ul>
+              <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
+                <AdBanner size="mobile" position="Mobile 320x100" />
+                <AdBanner size="rectangle" position="Inline 300x250" />
+              </div>
             </div>
           </div>
 
