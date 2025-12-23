@@ -25,7 +25,7 @@ export default function Footer() {
   return (
     <footer className="bg-gradient-to-br from-blue-950 via-blue-900 to-blue-950 text-white py-12 border-t-4 border-yellow-400 shadow-2xl">
       <div className="max-w-6xl mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
           <div className="flex flex-col items-center md:items-start gap-4">
             <div className="bg-white p-3 rounded-2xl shadow-xl">
               <img
@@ -42,62 +42,61 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="bg-white/10 border border-white/15 rounded-2xl shadow-2xl p-8 space-y-6">
-            <div className="space-y-4">
-              <div className="flex items-start gap-3">
-                <span className="text-2xl">📞</span>
-                <div>
-                  <p className="text-sm uppercase tracking-wide text-blue-100 font-semibold">Bel ons</p>
-                  <a href="tel:0102410260" className="text-xl font-bold text-white hover:text-yellow-300 transition-colors">
-                    010 241 0260
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <span className="text-2xl">✉️</span>
-                <div>
-                  <p className="text-sm uppercase tracking-wide text-blue-100 font-semibold">Mail ons</p>
-                  <a
-                    href="mailto:info@sunrisefm.nl"
-                    className="text-xl font-bold text-white hover:text-yellow-300 transition-colors"
-                  >
-                    info@sunrisefm.nl
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <span className="text-2xl">📍</span>
-                <div>
-                  <p className="text-sm uppercase tracking-wide text-blue-100 font-semibold">Bezoek</p>
-                  <p className="text-lg font-semibold text-white leading-relaxed">
-                    Rotterdam Centrum<br />
-                    Altijd welkom op afspraak
-                  </p>
-                </div>
+          <div className="bg-white/10 border border-white/15 rounded-2xl shadow-2xl p-8 space-y-5">
+            <h4 className="text-sm uppercase tracking-wide text-yellow-200 font-semibold">Contact</h4>
+            <div className="flex items-start gap-3">
+              <span className="text-2xl">📞</span>
+              <div>
+                <p className="text-sm uppercase tracking-wide text-blue-100 font-semibold">Bel ons</p>
+                <a href="tel:0102410260" className="text-xl font-bold text-white hover:text-yellow-300 transition-colors">
+                  010 241 0260
+                </a>
               </div>
             </div>
 
-            <div className="pt-4 border-t border-white/10">
-              <p className="text-sm uppercase tracking-wide text-yellow-200 font-semibold mb-3">Volg SunriseFM</p>
-              <div className="flex flex-wrap gap-3">
-                {socials.map((social) => (
-                  <a
-                    key={social.name}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 transition-all duration-200 shadow-md"
-                    aria-label={social.name}
-                  >
-                    <span className="h-5 w-5 text-white group-hover:scale-110 transition-transform" aria-hidden="true">
-                      {social.icon}
-                    </span>
-                    <span className="font-semibold">{social.name}</span>
-                  </a>
-                ))}
+            <div className="flex items-start gap-3">
+              <span className="text-2xl">✉️</span>
+              <div>
+                <p className="text-sm uppercase tracking-wide text-blue-100 font-semibold">Mail ons</p>
+                <a
+                  href="mailto:info@sunrisefm.nl"
+                  className="text-xl font-bold text-white hover:text-yellow-300 transition-colors"
+                >
+                  info@sunrisefm.nl
+                </a>
               </div>
+            </div>
+
+            <div className="flex items-start gap-3">
+              <span className="text-2xl">📍</span>
+              <div>
+                <p className="text-sm uppercase tracking-wide text-blue-100 font-semibold">Bezoek</p>
+                <p className="text-lg font-semibold text-white leading-relaxed">
+                  Rotterdam Centrum<br />
+                  Altijd welkom op afspraak
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white/10 border border-white/15 rounded-2xl shadow-2xl p-8 space-y-4">
+            <h4 className="text-sm uppercase tracking-wide text-yellow-200 font-semibold">Volg SunriseFM</h4>
+            <div className="flex flex-wrap gap-3">
+              {socials.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 transition-all duration-200 shadow-md"
+                  aria-label={social.name}
+                >
+                  <span className="h-5 w-5 text-white group-hover:scale-110 transition-transform" aria-hidden="true">
+                    {social.icon}
+                  </span>
+                  <span className="font-semibold">{social.name}</span>
+                </a>
+              ))}
             </div>
           </div>
         </div>
