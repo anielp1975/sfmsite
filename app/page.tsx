@@ -13,6 +13,36 @@ export default function Home() {
       {/* Ad Banner 1 - Top Leaderboard */}
       <AdBanner size="leaderboard" position="Positie 1: Direct na Hero sectie (hoogste zichtbaarheid)" />
 
+      {/* Ad Banner Showcase */}
+      <section className="py-12 px-4 bg-gray-50 relative">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-6">Advertentie voorbeelden</h2>
+
+          {/* Verticale banners links en rechts (desktop) */}
+          <div className="hidden xl:block absolute -left-44 top-16">
+            <AdBanner size="skyscraper" position="Links: 160x600" />
+          </div>
+          <div className="hidden xl:block absolute -right-44 top-16">
+            <AdBanner size="skyscraper" position="Rechts: 160x600" />
+          </div>
+
+          <div className="space-y-10">
+            <div className="overflow-x-auto pb-2">
+              <div className="flex gap-6 min-w-max">
+                <AdBanner size="leaderboard" position="Leaderboard 1 (728x90)" />
+                <AdBanner size="leaderboard" position="Leaderboard 2 (728x90)" />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <AdBanner size="rectangle" position="Rectangle 1 (300x250)" />
+              <AdBanner size="rectangle" position="Rectangle 2 (300x250)" />
+              <AdBanner size="rectangle" position="Rectangle 3 (300x250)" />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Luister Via Section */}
       <section className="py-20 px-4 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto">
