@@ -16,6 +16,7 @@ export default function Home() {
       {/* Ad Banner 1 - Top Leaderboard */}
       <AdBanner
         size="leaderboard"
+        name="home_leaderboard_top"
         position="Positie 1: Direct na Hero sectie (hoogste zichtbaarheid)"
         html={LEADERBOARD_HTML}
       />
@@ -27,24 +28,24 @@ export default function Home() {
 
           {/* Verticale banners links en rechts (desktop) */}
           <div className="hidden xl:block absolute -left-44 top-16">
-            <AdBanner size="skyscraper" position="Links: 160x600" />
+            <AdBanner size="skyscraper" name="showcase_left_skyscraper" position="Links: 160x600" />
           </div>
           <div className="hidden xl:block absolute -right-44 top-16">
-            <AdBanner size="skyscraper" position="Rechts: 160x600" />
+            <AdBanner size="skyscraper" name="showcase_right_skyscraper" position="Rechts: 160x600" />
           </div>
 
           <div className="space-y-10">
             <div className="overflow-x-auto pb-2">
               <div className="flex gap-6 min-w-max">
-                <AdBanner size="leaderboard" position="Leaderboard 1 (728x90)" html={LEADERBOARD_HTML} />
-                <AdBanner size="leaderboard" position="Leaderboard 2 (728x90)" html={LEADERBOARD_HTML} />
+                <AdBanner size="leaderboard" name="showcase_leaderboard_1" position="Leaderboard 1 (728x90)" html={LEADERBOARD_HTML} />
+                <AdBanner size="leaderboard" name="showcase_leaderboard_2" position="Leaderboard 2 (728x90)" html={LEADERBOARD_HTML} />
               </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              <AdBanner size="rectangle" position="Rectangle 1 (300x250)" />
-              <AdBanner size="rectangle" position="Rectangle 2 (300x250)" />
-              <AdBanner size="rectangle" position="Rectangle 3 (300x250)" />
+              <AdBanner size="rectangle" name="showcase_rectangle_1" position="Rectangle 1 (300x250)" />
+              <AdBanner size="rectangle" name="showcase_rectangle_2" position="Rectangle 2 (300x250)" />
+              <AdBanner size="rectangle" name="showcase_rectangle_3" position="Rectangle 3 (300x250)" />
             </div>
 
             <div className="bg-white rounded-2xl border border-blue-100 shadow-xl p-6">
@@ -52,7 +53,7 @@ export default function Home() {
               <div className="grid grid-cols-1 xl:grid-cols-[180px_1fr_180px] gap-6 items-start">
                 <div className="hidden xl:block">
                   <div className="sticky top-24">
-                    <AdBanner size="skyscraper" position="Sidebar links 160x600" />
+                    <AdBanner size="skyscraper" name="sidebar_left_skyscraper_demo" position="Sidebar links 160x600" />
                   </div>
                 </div>
 
@@ -60,20 +61,20 @@ export default function Home() {
                   <p className="text-gray-700 text-sm">
                     Voorbeeld van content met echte zijbanners ernaast. Scroll mee en zie hoe de banners zichtbaar blijven op desktop.
                   </p>
-                  <AdBanner size="rectangle" position="Inline 300x250" />
-                  <AdBanner size="leaderboard" position="Inline 728x90 (desktop)" html={LEADERBOARD_HTML} />
+                  <AdBanner size="rectangle" name="inline_rectangle_demo" position="Inline 300x250" />
+                  <AdBanner size="leaderboard" name="inline_leaderboard_demo" position="Inline 728x90 (desktop)" html={LEADERBOARD_HTML} />
                 </div>
 
                 <div className="hidden xl:block">
                   <div className="sticky top-24">
-                    <AdBanner size="skyscraper" position="Sidebar rechts 160x600" />
+                    <AdBanner size="skyscraper" name="sidebar_right_skyscraper_demo" position="Sidebar rechts 160x600" />
                   </div>
                 </div>
               </div>
 
               <div className="mt-4 xl:hidden grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <AdBanner size="mobile" position="Mobile 320x100" />
-                <AdBanner size="rectangle" position="Inline 300x250" />
+                <AdBanner size="mobile" name="mobile_320x100_demo" position="Mobile 320x100" />
+                <AdBanner size="rectangle" name="mobile_inline_rectangle_demo" position="Inline 300x250" />
               </div>
             </div>
           </div>
@@ -130,7 +131,7 @@ export default function Home() {
 
       {/* Ad Banner 2 - Rectangle */}
       <div className="bg-white py-8">
-        <AdBanner size="rectangle" position="Positie 2: Na 'Luister Via' sectie (midden content)" />
+        <AdBanner size="rectangle" name="midpage_rectangle_after_listen" position="Positie 2: Na 'Luister Via' sectie (midden content)" />
       </div>
 
       {/* Welcome Section */}
@@ -196,6 +197,7 @@ export default function Home() {
       <div className="bg-gray-50 py-8">
         <AdBanner
           size="leaderboard"
+          name="footer_leaderboard"
           position="Positie 5: Voor de footer (laatste impressie)"
           html={LEADERBOARD_HTML}
         />
@@ -220,7 +222,7 @@ export default function Home() {
                 <li>✓ Alleen zichtbaar op desktop/tablet</li>
               </ul>
               <div className="mt-6 flex justify-center">
-                <AdBanner size="skyscraper" position="Voorbeeld sidebar 160x600" />
+                <AdBanner size="skyscraper" name="extra_sidebar_demo" position="Voorbeeld sidebar 160x600" />
               </div>
             </div>
             
@@ -236,8 +238,8 @@ export default function Home() {
                 <li>✓ Hoge engagement op mobiel</li>
               </ul>
               <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
-                <AdBanner size="mobile" position="Mobile 320x100" />
-                <AdBanner size="rectangle" position="Inline 300x250" />
+                <AdBanner size="mobile" name="extra_mobile_320x100" position="Mobile 320x100" />
+                <AdBanner size="rectangle" name="extra_inline_rectangle" position="Inline 300x250" />
               </div>
             </div>
           </div>

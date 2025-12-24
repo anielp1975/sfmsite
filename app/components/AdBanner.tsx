@@ -1,13 +1,17 @@
 'use client'
 
+import { useEffect, useRef } from 'react'
+import { trackEvent } from './AnalyticsTracker'
+
 interface AdBannerProps {
   size: 'leaderboard' | 'rectangle' | 'skyscraper' | 'mobile'
   position: string
+  name?: string
   embedUrl?: string
   html?: string
 }
 
-export default function AdBanner({ size, position, embedUrl, html }: AdBannerProps) {
+export default function AdBanner({ size, position, name, embedUrl, html }: AdBannerProps) {
   const dimensions = {
     leaderboard: { width: '728px', height: '90px', mobileWidth: '320px', mobileHeight: '50px' },
     rectangle: { width: '300px', height: '250px', mobileWidth: '300px', mobileHeight: '250px' },
@@ -16,6 +20,18 @@ export default function AdBanner({ size, position, embedUrl, html }: AdBannerPro
   }
 
   const dim = dimensions[size]
+  const bannerName = name || position
+  const impressionSent = useRef(false)
+
+  useEffect(() => {
+    if (impressionSent.current) return
+
+    impressionSent.current = true
+    const page = typeof window !== 'undefined' ? window.location.pathname : 'unknown'
+    const detail = `Banner: ${bannerName} | size=${size} | position=${position}`
+
+    trackEvent('ad_impression', page, detail)
+  }, [bannerName, position, size])
 
   return (
     <div className="flex justify-center items-center my-6">
@@ -26,13 +42,16 @@ export default function AdBanner({ size, position, embedUrl, html }: AdBannerPro
           height: dim.height,
           maxWidth: '100%'
         }}
+        data-banner-name={bannerName}
+        data-banner-position={position}
+        aria-label={`Advertentie ${bannerName}`}
       >
         {html ? (
           <div className="w-full h-full" dangerouslySetInnerHTML={{ __html: html }} />
         ) : embedUrl ? (
           <iframe
             src={embedUrl}
-            title={`Advertentie ${position}`}
+            title={`Advertentie ${bannerName}`}
             className="w-full h-full"
             style={{ border: 0 }}
             loading="lazy"
@@ -66,6 +85,10 @@ export default function AdBanner({ size, position, embedUrl, html }: AdBannerPro
             {/* Corner ribbon */}
             <div className="absolute top-2 right-2 bg-yellow-400 text-blue-900 text-xs font-bold px-2 py-1 rounded transform rotate-12 shadow-lg">
               TE HUUR
+            </div>
+
+            <div className="absolute top-2 left-2 bg-white/80 text-blue-900 text-[10px] font-semibold px-2 py-1 rounded shadow">
+              {bannerName}
             </div>
           </>
         )}
