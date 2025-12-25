@@ -2,13 +2,30 @@ import Hero from './components/Hero'
 import LiveWeather from './components/LiveWeather'
 import StarnieuwsFeed from './components/StarnieuwsFeed'
 import AdBanner from './components/AdBanner'
+import { fetchBannerSlot } from '@/lib/banners'
 
 const LEADERBOARD_EMBED_URL = 'https://cms.sunrisefm.eu/?ptbm_embed=13'
-const LEADERBOARD_HTML = '<a href="https://cms.sunrisefm.eu/?ptbm_click=13" target="_blank" rel="noopener noreferrer"><img src="https://cms.sunrisefm.eu/wp-content/uploads/2025/12/istockphoto-1165218630-1024x1024-1.jpg" alt="" style="max-width:100%;height:auto;border:0;" /></a>'
+const LEADERBOARD_HTML = '<a href="https://cms.sunrisefm.eu/?ptbm_click=27" target="_blank" rel="noopener noreferrer"><img src="https://cms.sunrisefm.eu/wp-content/uploads/2025/12/istockphoto-1165218630-1024x1024-1.jpg" alt="" style="max-width:100%;height:auto;border:0;" /></a>'
+
+// Per-slot overrides via environment variables so je in WordPress dezelfde naam (slug) kunt gebruiken als de bannerruimte.
+const TOPBANNER1_HTML = process.env.NEXT_PUBLIC_TOPBANNER1_HTML || LEADERBOARD_HTML
+const TOPBANNER1_EMBED_URL = process.env.NEXT_PUBLIC_TOPBANNER1_EMBED_URL
+const TOPBANNER2_HTML = process.env.NEXT_PUBLIC_TOPBANNER2_HTML || LEADERBOARD_HTML
+const TOPBANNER2_EMBED_URL = process.env.NEXT_PUBLIC_TOPBANNER2_EMBED_URL
 
 export const revalidate = 3600
 
-export default function Home() {
+export default async function Home() {
+  const [top1, top2] = await Promise.all([
+    fetchBannerSlot('topbanner1'),
+    fetchBannerSlot('topbanner2')
+  ])
+
+  const top1Html = top1.html || TOPBANNER1_HTML
+  const top1EmbedUrl = top1.embedUrl || TOPBANNER1_EMBED_URL
+  const top2Html = top2.html || TOPBANNER2_HTML
+  const top2EmbedUrl = top2.embedUrl || TOPBANNER2_EMBED_URL
+
   return (
     <div className="min-h-screen pb-24">
       <Hero />
@@ -21,13 +38,15 @@ export default function Home() {
               size="leaderboard"
               name="topbanner1"
               position="topbanner1 (728x90)"
-              html={LEADERBOARD_HTML}
+              html={top1Html}
+              embedUrl={top1EmbedUrl}
             />
             <AdBanner
               size="leaderboard"
               name="topbanner2"
               position="topbanner2 (728x90)"
-              html={LEADERBOARD_HTML}
+              html={top2Html}
+              embedUrl={top2EmbedUrl}
             />
           </div>
         </div>
