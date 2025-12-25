@@ -14,7 +14,8 @@ export async function fetchBannerSlot(slot: string): Promise<BannerFetchResult> 
     return { source: 'fallback' }
   }
 
-  const url = `${WP_BASE_URL}/wp-json/wp/v2/posts?slug=${encodeURIComponent(slot)}&_fields=slug,content.rendered`
+  // Using rest_route to avoid HTML fallback responses from some WordPress setups
+  const url = `${WP_BASE_URL}/?rest_route=/wp/v2/posts&slug=${encodeURIComponent(slot)}&_fields=slug,content.rendered`
 
   try {
     const res = await fetch(url, {
