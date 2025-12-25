@@ -14,19 +14,19 @@ export default function Home() {
       <Hero />
 
       {/* Ad Banner 1 - Top Leaderboards (2x 728x90) */}
-      <section className="py-6 px-4">
+      <section className="py-6 px-4 bg-white">
         <div className="max-w-screen-2xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             <AdBanner
               size="leaderboard"
-              name="home_leaderboard_top_left"
-              position="Positie 1A: Direct na Hero sectie (hoogste zichtbaarheid)"
+              name="topbanner1"
+              position="topbanner1 (728x90)"
               html={LEADERBOARD_HTML}
             />
             <AdBanner
               size="leaderboard"
-              name="home_leaderboard_top_right"
-              position="Positie 1B: Direct na Hero sectie (hoogste zichtbaarheid)"
+              name="topbanner2"
+              position="topbanner2 (728x90)"
               html={LEADERBOARD_HTML}
             />
           </div>

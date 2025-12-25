@@ -18,7 +18,7 @@ export default function Hero({
         <div className="absolute top-1/2 left-1/2 w-72 h-72 bg-purple-400/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '4s' }}></div>
       </div>
       
-      <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
+      <div className="max-w-7xl mx-auto px-6 relative z-10 w-full md:w-[80%]">
         <div className="flex flex-col md:flex-row items-center justify-center md:justify-between gap-8 md:gap-12">
           {/* Left side - Text */}
           <div className="text-center md:text-left space-y-4">
