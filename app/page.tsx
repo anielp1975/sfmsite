@@ -13,7 +13,7 @@ const TOPBANNER1_EMBED_URL = process.env.NEXT_PUBLIC_TOPBANNER1_EMBED_URL
 const TOPBANNER2_HTML = process.env.NEXT_PUBLIC_TOPBANNER2_HTML || LEADERBOARD_HTML
 const TOPBANNER2_EMBED_URL = process.env.NEXT_PUBLIC_TOPBANNER2_EMBED_URL
 
-export const revalidate = 3600
+export const revalidate = 300
 
 export default async function Home() {
   const [top1, top2] = await Promise.all([

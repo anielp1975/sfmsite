@@ -22,10 +22,7 @@ export async function fetchBannerSlot(slot: string): Promise<BannerFetchResult> 
       headers: {
         Authorization: WP_AUTH
       },
-      cache: 'force-cache',
-      next: {
-        revalidate: REVALIDATE_SECONDS
-      }
+      cache: 'no-store'
     })
 
     if (!res.ok) {
