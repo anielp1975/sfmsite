@@ -6,6 +6,9 @@ export type YoutubeVideo = {
   published: string;
 };
 
+// Default fallback channel when env is not set
+const DEFAULT_CHANNEL_ID = 'UCWY1nnGPubXzEhD-sa1wreg';
+
 function extractTag(block: string, tag: string): string | null {
   const cdataPattern = new RegExp(`<${tag}[^>]*><!\[CDATA\[([\s\S]*?)\]\]>`, 'i');
   const simplePattern = new RegExp(`<${tag}[^>]*>([\s\S]*?)<\/${tag}>`, 'i');
@@ -27,10 +30,7 @@ function extractThumbnail(block: string): string | null {
 }
 
 export async function getLatestYoutubeVideos(limit = 4): Promise<YoutubeVideo[]> {
-  const channelId = process.env.YOUTUBE_CHANNEL_ID || process.env.NEXT_PUBLIC_YOUTUBE_CHANNEL_ID;
-  if (!channelId) {
-    return [];
-  }
+  const channelId = process.env.YOUTUBE_CHANNEL_ID || process.env.NEXT_PUBLIC_YOUTUBE_CHANNEL_ID || DEFAULT_CHANNEL_ID;
 
   try {
     const feedUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
