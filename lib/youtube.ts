@@ -9,6 +9,38 @@ export type YoutubeVideo = {
 // Default fallback channel when env is not set
 const DEFAULT_CHANNEL_ID = 'UCWY1nnGPubXzEhD-sa1wreg';
 
+// Fallback items so de sectie nooit leeg blijft wanneer de feed niet kan worden opgehaald.
+const FALLBACK_VIDEOS: YoutubeVideo[] = [
+  {
+    id: 'TbHTJhOYJew',
+    title: '💫Sur Ke Sitare: Interview met jong talent Fardeen',
+    url: 'https://www.youtube.com/watch?v=TbHTJhOYJew',
+    thumbnail: 'https://i1.ytimg.com/vi/TbHTJhOYJew/hqdefault.jpg',
+    published: '',
+  },
+  {
+    id: 'iR5I_U0xhjc',
+    title: 'Programma Zorg en Samenleving: in gesprek met dr. Rahiela Muradin',
+    url: 'https://www.youtube.com/watch?v=iR5I_U0xhjc',
+    thumbnail: 'https://i2.ytimg.com/vi/iR5I_U0xhjc/hqdefault.jpg',
+    published: '',
+  },
+  {
+    id: 'biosxEsZgrk',
+    title: '📣 Interview met Baithak Gana zanger Vishaal Hira - Hira Brothers',
+    url: 'https://www.youtube.com/watch?v=biosxEsZgrk',
+    thumbnail: 'https://i3.ytimg.com/vi/biosxEsZgrk/hqdefault.jpg',
+    published: '',
+  },
+  {
+    id: 'I0GA4poKyPM',
+    title: 'Sur Ke Sitare:zanger George Hausil;bekend om zijn warme stem.',
+    url: 'https://www.youtube.com/watch?v=I0GA4poKyPM',
+    thumbnail: 'https://i2.ytimg.com/vi/I0GA4poKyPM/hqdefault.jpg',
+    published: '',
+  },
+];
+
 function extractTag(block: string, tag: string): string | null {
   const cdataPattern = new RegExp(`<${tag}[^>]*><!\[CDATA\[([\s\S]*?)\]\]>`, 'i');
   const simplePattern = new RegExp(`<${tag}[^>]*>([\s\S]*?)<\/${tag}>`, 'i');
@@ -56,9 +88,14 @@ export async function getLatestYoutubeVideos(limit = 4): Promise<YoutubeVideo[]>
       })
       .filter((v): v is YoutubeVideo => Boolean(v));
 
+    if (!videos.length) {
+      console.warn('YouTube feed leeg, toon fallback items');
+      return FALLBACK_VIDEOS.slice(0, limit);
+    }
+
     return videos;
   } catch (error) {
     console.error('Fout bij ophalen YouTube feed:', error);
-    return [];
+    return FALLBACK_VIDEOS.slice(0, limit);
   }
 }
