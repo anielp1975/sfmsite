@@ -32,6 +32,24 @@ export default async function Home() {
     <div className="min-h-screen pb-24">
       <Hero />
 
+      {/* Hero top banners (2x 728x90) */}
+      <section className="py-6 px-4 bg-white">
+        <div className="max-w-screen-2xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            <AdBanner
+              size="leaderboard"
+              name="heroton01"
+              position="Hero Top 01 (728x90)"
+            />
+            <AdBanner
+              size="leaderboard"
+              name="herotop02"
+              position="Hero Top 02 (728x90)"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* YouTube blok: laatste 4 video's */}
       <section className="py-12 px-4 bg-gradient-to-r from-blue-900 via-purple-900 to-blue-900 text-white">
         <div className="max-w-screen-2xl mx-auto space-y-6">
