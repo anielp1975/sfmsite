@@ -3,6 +3,7 @@ import LiveWeather from './components/LiveWeather'
 import StarnieuwsFeed from './components/StarnieuwsFeed'
 import AdBanner from './components/AdBanner'
 import { fetchBannerSlot } from '@/lib/banners'
+import { getLatestYoutubeVideos } from '@/lib/youtube'
 
 const LEADERBOARD_EMBED_URL = 'https://cms.sunrisefm.eu/?ptbm_embed=13'
 const LEADERBOARD_HTML = '<a href="https://cms.sunrisefm.eu/?ptbm_click=27" target="_blank" rel="noopener noreferrer"><img src="https://cms.sunrisefm.eu/wp-content/uploads/2025/12/istockphoto-1165218630-1024x1024-1.jpg" alt="" style="max-width:100%;height:auto;border:0;" /></a>'
@@ -16,9 +17,10 @@ const TOPBANNER2_EMBED_URL = process.env.NEXT_PUBLIC_TOPBANNER2_EMBED_URL
 export const revalidate = 300
 
 export default async function Home() {
-  const [top1, top2] = await Promise.all([
+  const [top1, top2, videos] = await Promise.all([
     fetchBannerSlot('topbanner1'),
-    fetchBannerSlot('topbanner2')
+    fetchBannerSlot('topbanner2'),
+    getLatestYoutubeVideos(4)
   ])
 
   const top1Html = top1.html || TOPBANNER1_HTML
@@ -29,6 +31,60 @@ export default async function Home() {
   return (
     <div className="min-h-screen pb-24">
       <Hero />
+
+      {/* YouTube blok: laatste 4 video's */}
+      <section className="py-12 px-4 bg-gradient-to-r from-blue-900 via-purple-900 to-blue-900 text-white">
+        <div className="max-w-screen-2xl mx-auto space-y-6">
+          <div className="flex items-center justify-between gap-4 flex-wrap">
+            <div>
+              <p className="text-sm text-blue-100">Nieuw: bekijk de nieuwste uploads op YouTube</p>
+              <h2 className="text-3xl md:text-4xl font-black">Laatste YouTube video&apos;s</h2>
+            </div>
+            <a
+              href="https://www.youtube.com/@sunrisefmnl"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-yellow-300 text-blue-900 font-black shadow-lg hover:bg-yellow-200 transition"
+            >
+              Naar YouTube →
+            </a>
+          </div>
+
+          {videos.length ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+              {videos.map((video) => (
+                <a
+                  key={video.id}
+                  href={video.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group bg-white/10 border border-white/15 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition transform hover:-translate-y-1"
+                >
+                  <div className="aspect-video bg-white/5 overflow-hidden">
+                    <img
+                      src={video.thumbnail}
+                      alt={video.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="p-4 space-y-2">
+                    <h3 className="font-bold text-lg text-white overflow-hidden text-ellipsis" style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>
+                      {video.title}
+                    </h3>
+                    <p className="text-xs text-blue-100">YouTube • Klik om te bekijken</p>
+                  </div>
+                </a>
+              ))}
+            </div>
+          ) : (
+            <div className="rounded-2xl border border-yellow-300 bg-yellow-50 text-yellow-900 p-4 text-sm">
+              <p className="font-semibold">Kon geen video&apos;s laden.</p>
+              <p className="mt-1">Zet de YouTube channel ID in de environment variabele <strong>YOUTUBE_CHANNEL_ID</strong> of <strong>NEXT_PUBLIC_YOUTUBE_CHANNEL_ID</strong> om de laatste 4 video&apos;s automatisch te tonen.</p>
+            </div>
+          )}
+        </div>
+      </section>
 
       {/* Ad Banner 1 - Top Leaderboards (2x 728x90) */}
       <section className="py-6 px-4 bg-white">
