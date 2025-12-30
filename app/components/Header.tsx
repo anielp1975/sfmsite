@@ -1,16 +1,11 @@
 'use client';
 
 import Link from 'next/link';
-import type { ChangeEvent } from 'react';
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import { trackEvent } from './AnalyticsTracker';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isPlayerOpen, setIsPlayerOpen] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [volume, setVolume] = useState(0.4);
-  const audioRef = useRef<HTMLAudioElement>(null);
 
   const menuItems = [
     { label: 'Home', href: '/' },
@@ -21,62 +16,17 @@ export default function Header() {
     // { label: '📊 Stats', href: '/stats' }, // Uitgeschakeld - later terugkomen
   ];
 
-  useEffect(() => {
-    if (!isPlayerOpen || !audioRef.current) return;
+  const openPlayerWindow = () => {
+    const playerUrl = '/player';
+    const currentPath = typeof window !== 'undefined' ? window.location.pathname : '/';
 
-    audioRef.current.volume = volume;
+    trackEvent('open_player_window', currentPath, 'Luister live geopend in nieuw scherm');
 
-    const start = async () => {
-      try {
-        await audioRef.current?.play();
-        setIsPlaying(true);
-        trackEvent('audio_play', window.location.pathname, 'Hero header popup player gestart');
-      } catch (err) {
-        console.warn('Autoplay geblokkeerd, gebruiker moet op play klikken', err);
+    if (typeof window !== 'undefined') {
+      const win = window.open(playerUrl, '_blank', 'noopener,noreferrer');
+      if (!win) {
+        window.location.href = playerUrl;
       }
-    };
-
-    start();
-  }, [isPlayerOpen, volume]);
-
-  const openPlayer = () => {
-    setIsPlayerOpen(true);
-    setIsMenuOpen(false);
-  };
-
-  const closePlayer = () => {
-    if (audioRef.current) {
-      audioRef.current.pause();
-      audioRef.current.currentTime = 0;
-    }
-    setIsPlaying(false);
-    setIsPlayerOpen(false);
-  };
-
-  const handlePlay = async () => {
-    if (!audioRef.current) return;
-    try {
-      audioRef.current.volume = volume;
-      await audioRef.current.play();
-      setIsPlaying(true);
-      trackEvent('audio_play', window.location.pathname, 'Hero header popup player gestart');
-    } catch (err) {
-      console.error('Kon stream niet starten:', err);
-    }
-  };
-
-  const handlePause = () => {
-    if (!audioRef.current) return;
-    audioRef.current.pause();
-    setIsPlaying(false);
-    trackEvent('audio_stop', window.location.pathname, 'Hero header popup player gepauzeerd');
-  };
-
-  const handleVolumeChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const newVolume = parseFloat(event.target.value);
-    setVolume(newVolume);
-    if (audioRef.current) {
-      audioRef.current.volume = newVolume;
     }
   };
 
@@ -132,7 +82,7 @@ export default function Header() {
                 </Link>
               ))}
               <button
-                onClick={() => openPlayer()}
+                onClick={openPlayerWindow}
                 className="ml-2 flex items-center gap-2 bg-blue-900 text-yellow-300 font-black px-4 py-2 rounded-xl shadow-lg hover:bg-blue-800 hover:shadow-blue-800/40 transition-all duration-300 transform hover:scale-105"
                 aria-label="Luister live"
               >
@@ -169,7 +119,7 @@ export default function Header() {
               <button
                 onClick={() => {
                   setIsMenuOpen(false);
-                  openPlayer();
+                  openPlayerWindow();
                 }}
                 className="w-full font-black text-blue-900 py-3 px-4 rounded-xl bg-white/70 hover:bg-white transition-all duration-300 hover:shadow-md"
                 aria-label="Luister live"
@@ -178,74 +128,6 @@ export default function Header() {
               </button>
             </div>
           </nav>
-        )}
-
-        {isPlayerOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4">
-            <div className="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6 relative">
-              <button
-                onClick={closePlayer}
-                className="absolute top-3 right-3 text-blue-900 hover:text-red-600 font-black text-xl"
-                aria-label="Sluit speler"
-              >
-                ×
-              </button>
-
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-xl overflow-hidden shadow-lg">
-                  <img src="https://www.sunrisefm.eu/images/logo.jpg" alt="Radio SunriseFM" className="w-full h-full object-cover" />
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-blue-700">Live stream</p>
-                  <h3 className="text-xl font-black text-blue-900">Radio SunriseFM</h3>
-                  <p className="text-xs text-gray-600">102.3 FM • DAB+ • Wereldwijd online</p>
-                </div>
-              </div>
-
-              <div className="bg-blue-50 border border-blue-100 rounded-xl p-4 flex flex-col gap-3">
-                <div className="flex items-center gap-3">
-                  <span className={`text-sm font-black ${isPlaying ? 'text-red-600' : 'text-gray-600'}`}>
-                    {isPlaying ? '🔴 LIVE' : '⏸️ Gepauzeerd'}
-                  </span>
-                  <span className="text-xs text-gray-500">Volume: {Math.round(volume * 100)}%</span>
-                </div>
-
-                <div className="flex items-center gap-3 flex-wrap">
-                  <button
-                    onClick={handlePlay}
-                    className="px-4 py-2 rounded-lg bg-green-600 text-white font-black shadow-md hover:bg-green-700 transition-all"
-                  >
-                    ▶️ Play
-                  </button>
-                  <button
-                    onClick={handlePause}
-                    className="px-4 py-2 rounded-lg bg-red-600 text-white font-black shadow-md hover:bg-red-700 transition-all"
-                  >
-                    ⏸️ Pause
-                  </button>
-                  <label className="flex items-center gap-2 text-sm text-blue-900 font-semibold">
-                    🔊 Volume
-                    <input
-                      type="range"
-                      min="0"
-                      max="1"
-                      step="0.01"
-                      value={volume}
-                      onChange={handleVolumeChange}
-                      className="w-32 accent-blue-900"
-                      aria-label="Volume"
-                    />
-                  </label>
-                </div>
-              </div>
-
-              <audio
-                ref={audioRef}
-                src="https://stream.sfmstreaming.nl:8006/stream"
-                crossOrigin="anonymous"
-              />
-            </div>
-          </div>
         )}
       </div>
     </header>
