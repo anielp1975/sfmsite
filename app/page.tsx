@@ -38,13 +38,15 @@ export default async function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             <AdBanner
               size="leaderboard"
-              name="heroton01"
+              name="top_01"
               position="Hero Top 01 (728x90)"
+              html='<div data-ptbmp-slot="top_01" data-ptbmp-refresh="60" style="width:728px"></div><script src="https://cms.sunrisefm.eu/wp-content/plugins/pt-banner-manager-pro/assets/js/ptbmp-embed.js" defer></script>'
             />
             <AdBanner
               size="leaderboard"
-              name="herotop02"
+              name="top_02"
               position="Hero Top 02 (728x90)"
+              html='<div data-ptbmp-slot="top_01" data-ptbmp-refresh="60" style="width:728px"></div><script src="https://cms.sunrisefm.eu/wp-content/plugins/pt-banner-manager-pro/assets/js/ptbmp-embed.js" defer></script>'
             />
           </div>
         </div>
